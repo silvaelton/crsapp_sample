@@ -1,7 +1,10 @@
 .ui.vertical.menu
   - if @project.navs.present?
-    - @project.navs.order('navs.order ASC').each do |nav|
-      %a.item{href: "#"}
+    - @project.navs.order(:order).each do |nav|
+      - if nav.link?
+        %a.item{href: "#{nav.url}"}= nav.label
+      - else
+        %a.item{href: "#{project_page_path(@project, nav.page)}"}= nav.label
   - else
     %a.item{hreaf: "#"}
       %i Nenhum link cadastrado

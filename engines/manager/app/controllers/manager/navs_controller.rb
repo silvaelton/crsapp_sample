@@ -32,11 +32,6 @@ module Manager
 
     def update
 
-      if params[:project][:password].blank?
-        params[:project].delete :password
-        params[:project].delete :password_confirmation
-      end
-
       if @nav.update(set_params)
         flash[:success] = t :success
         redirect_to action: :index
@@ -54,7 +49,7 @@ module Manager
     private
 
     def set_params
-      params.require(:nav).permit(:name, :email, :password, :situation)
+      params.require(:nav).permit(:link, :label, :url, :page_type, :active, :page_id, :order)
     end
 
     def set_project

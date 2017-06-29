@@ -1,0 +1,49 @@
+= simple_form_for url_for do |f|
+  .fields
+    .field.sixteen.wide
+      = f.input  :name
+  .fields
+    .field.three.wide
+      = f.input  :cpf
+    .field.three.wide
+      = f.input  :rg
+    .field.three.wide
+      = f.input :gender, as: :select, include_blank: false
+    .field.three.wide
+      = f.input :born, as: :string, input_html: { class: 'date'}
+  .fields
+    .field.three.wide
+      = f.input  :cep
+    .field.three.wide
+      = f.input  :city
+    .field.three.wide
+      = f.input  :burgh
+    .field.seven.wide
+      = f.input  :address
+  .fields
+    .field.three.wide
+      = f.input  :telephone
+    .field.three.wide
+      = f.input  :celphone
+    .field.three.wide
+      = f.input  :email
+  .fields
+    .field.three.wide
+      = f.input  :fantasy_name
+    .field.three.wide
+      = f.input  :social_reason
+    .field.three.wide
+      = f.input  :cnpj, input_html: { class: 'cnpj'}
+  .fields
+    .field.five.wide
+      = f.input  :document_one, as: :file
+    .field.five.wide
+      = f.input  :document_two, as: :file
+  .fields
+    .field.three.wide
+      = f.input  :password
+    .field.three.wide
+      = f.input :terms_use, as: :select, include_blank: false
+  .fields
+    = f.submit "Realizar minha inscrição", class: 'ui button green'
+

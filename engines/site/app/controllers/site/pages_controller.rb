@@ -6,13 +6,13 @@ module Site
     before_action :set_project
 
     def show
-      @page = Site::Page.friendly.find(params[:id])
+      @page = Site::Page.find(params[:id])
     end
 
     private
 
     def set_project
-      @project = Site::Project.find(params[:id])
+      @project = Site::Project.find(params[:project_id])
     end
     
   end

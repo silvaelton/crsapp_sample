@@ -1,7 +1,13 @@
 Site::Engine.routes.draw do
 
-  resources :projects, path: '/concurso', only: [:show] do 
+  resources :projects, path: '/', only: [:show] do 
     resources :pages, only: [:show]
+    resources :candidates, only: [:index, :new, :create], path: 'inscricao'
+    
+    namespace :restrict do 
+      resources :candidates, only: [:show]
+      resources :sessions, only: [:new, :create]
+    end
   end
 
 end

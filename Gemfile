@@ -15,7 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-gem 'simple_form'
+gem 'simple_form', '3.2.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'haml'
 

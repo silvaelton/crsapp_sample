@@ -1,11 +1,21 @@
 = simple_form_for [@project, @nav] do |f|
-  = f.input :label, input_html: { placeholder: "Informe o nome do menu"}
-  = f.input :page_type, collection: Nav.page_types.map { |k,v| [k.humanize, k]}, as: :select, include_blank: false
-  = f.input :url, input_html: { placeholder: "Informe o nome do menu"}
-  = f.association :page, include_blank: "Selecione..."
-  = f.input :order
-  = f.input :open_new_page, as: :select, include_blank: false
-  = f.input :active, as: :select, include_blank: false
+  .fields
+    .field.sixteen.wide
+      = f.input :label, input_html: { placeholder: "Informe o nome do menu"}
+  .fields
+    .field.two.wide
+      = f.input :page_type, collection: Nav.page_types.map { |k,v| [k.humanize, k]}, as: :select, include_blank: false
+    .field.seven.wide
+      = f.input :url, input_html: { placeholder: "Informe o nome do menu"}
+    .field.seven.wide
+      = f.association :page, include_blank: "Selecione..."
+  .fields
+    .field.two.wide
+      = f.input :order
+    .field.three.wide
+      = f.input :open_new_page, as: :select, include_blank: false
+    .field.four.wide
+      = f.input :active, as: :select, include_blank: false
   .ui.header.hidden
   .field
     = f.button :submit, class: 'ui button green'
