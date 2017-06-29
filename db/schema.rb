@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.string   "title"
     t.string   "slug"
     t.text     "mini_description"
+    t.integer  "home_page_id"
     t.date     "start"
     t.date     "end"
     t.date     "subscribe_start"

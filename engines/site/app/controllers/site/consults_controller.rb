@@ -4,6 +4,10 @@ module Site
   class ConsultsController < ApplicationController 
     before_action :set_project
 
+    def index
+      redirect_to action: :new
+    end
+
     def new
       @consult = @project.consults.new
     end
@@ -25,7 +29,7 @@ module Site
     end
 
     def set_project
-      @project = Site::Project.find(params[:id])
+      @project = Site::Project.friendly.find(params[:project_id])
     end
   end
 end

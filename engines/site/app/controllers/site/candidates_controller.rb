@@ -26,7 +26,7 @@ module Site
     private
 
     def set_project
-      @project = Site::Project.find(params[:project_id])
+      @project = Site::Project.friendly.find(params[:project_id])
     end
     
   end

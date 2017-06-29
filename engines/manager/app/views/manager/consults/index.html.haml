@@ -6,21 +6,24 @@
   .column
     %table.ui.table.striped.celled.bordered
       %thead 
+        %tr
+          %th{colspan: 4}
+            Listando #{@project.consults.count}
         %tr 
           %th Nº
-          %th CPF
-          %th Nome
-          %th Situação
           %th Data/Hora
+          %th Situação
+          %th
       %tbody 
         - if @project.consults.present?
-          %tr
-            %td{colspan: 5}
-              = @project.consults.count
-          - @project.consults.order(created_at: :asc).each do |candidate|
+          - @project.consults.order(created_at: :asc).each do |consult|
             %tr
-              %td
+              %td.collapsing= consult.id
+              %td= consult.created_at.strftime("%d/%m/%Y %H:%M")
+              %td.collapsing= consult.situation
+              %td.collapsing
+                = link_to "Visualizar / Atualizar", edit_project_consult_path(@project, consult), class: 'ui button blue tiny'
         - else
           %tr 
-            %td{colspan: 5}
+            %td{colspan: 4}
               %i Nenhuma consulta realizada

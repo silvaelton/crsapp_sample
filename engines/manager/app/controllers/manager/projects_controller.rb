@@ -57,7 +57,7 @@ module Manager
     end
 
     def set_project
-      @project = Manager::Project.find(params[:id])
+      @project = Manager::Project.friendly.find(params[:id])
     end
 
   end

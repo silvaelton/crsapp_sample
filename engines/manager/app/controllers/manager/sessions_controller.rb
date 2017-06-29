@@ -21,6 +21,12 @@ module Manager
 
     end
 
+    def destroy
+      session[:user_id] = nil 
+
+      redirect_to manager.root_path
+    end
+
     private
 
     def set_params

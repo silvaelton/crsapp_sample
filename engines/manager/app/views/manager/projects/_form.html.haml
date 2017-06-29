@@ -1,0 +1,17 @@
+= simple_form_for @project do |f|
+  = f.input :title
+  = f.input :slug
+  = f.input :mini_description
+  = f.input :home_page_id
+  = f.input :start, as: :string, input_html: { class: 'date'} 
+  = f.input :end, as: :string, input_html: { class: 'date'} 
+
+  = f.input :subscribe_start, as: :string, input_html: { class: 'date'} 
+  = f.input :subscribe_end, as: :string, input_html: { class: 'date'} 
+  = f.input :allow_subscribe,as: :select, include_blank: false, default: false
+   
+  = f.input :consult_start, as: :string, input_html: { class: 'date'} 
+  = f.input :consult_end , as: :string, input_html: { class: 'date'}      
+  = f.input :allow_consult, as: :select, include_blank: false,default: false
+   
+  = f.input :situation, default: 0

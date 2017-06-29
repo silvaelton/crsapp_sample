@@ -53,7 +53,7 @@ module Manager
     end
 
     def set_project
-      @project = Manager::Project.find(params[:project_id])
+      @project = Manager::Project.friendly.find(params[:project_id])
     end
 
     def set_consult

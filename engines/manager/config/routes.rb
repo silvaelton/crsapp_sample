@@ -8,5 +8,9 @@ Manager::Engine.routes.draw do
     resources :pages
   end
 
-  resources :sessions
+  resources :sessions do 
+    collection do
+      delete 'logout', to: 'sessions#destroy'
+    end 
+  end
 end

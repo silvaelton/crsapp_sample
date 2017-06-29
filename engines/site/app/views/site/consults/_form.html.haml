@@ -1,0 +1,4 @@
+= simple_form_for [@project, @consult] do |f|
+  = f.input :content, label: "Descrição da consulta"
+  .ui.divider.hidden
+  = f.submit "Enviar consulta", class: 'ui button green', data: { confirm: t(:confirm)}

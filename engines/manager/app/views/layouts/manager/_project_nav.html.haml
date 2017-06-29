@@ -11,3 +11,8 @@
     Inscritos
   %a.item{href: "#{manager.project_consults_path(@project)}"} 
     Consultas
+.ui.vertical.menu
+  %a.item{href: "#{manager.project_consults_path(@project)}"} 
+    Trocar minha senha
+  %a.item{href: "#{manager.logout_sessions_path}", data: { method: 'delete'}} 
+    Finalizar Sessão
