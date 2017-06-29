@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string  :title
       t.string  :slug
       t.text    :mini_description
-
+      t.integer :home_page_id
       t.date    :start 
       t.date    :end 
 

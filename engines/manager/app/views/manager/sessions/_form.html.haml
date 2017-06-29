@@ -1,0 +1,11 @@
+= simple_form_for @session do |f|
+  .ui.stacked.secondary.segment
+    %h3
+      %b Acesso Restrito
+    = f.input :email, label: false, placeholder: "Informe seu e-mail de acesso"
+    %br/
+    = f.input :password, label: false, placeholder: "Informe sua senha de acesso"
+    %br/
+    = f.submit "Realizar acesso", class: 'ui button fluid primary'
+  .ui.error.message
+

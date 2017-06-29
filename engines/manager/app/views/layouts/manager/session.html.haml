@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Site
+    = stylesheet_link_tag    "manager/application", media: "all"
+    = javascript_include_tag "manager/application"
+    = csrf_meta_tags
+    :css
+      body {
+        background-color: #DADADA;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: -100px;
+      }
+      .column {
+        max-width: 450px;
+      }
+  
+  %body
+    .ui.grid.container
+      = yield
+    

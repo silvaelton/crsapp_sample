@@ -1,0 +1,39 @@
+.row
+  .column
+    %h3 Menus
+    = link_to "+ Adicionar novo menu", new_project_nav_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead 
+        %tr
+          %th{colspan: 6}
+            Listando #{@project.navs.count}
+        %tr 
+          %th Nº
+          %th Nome
+          %th Ativo?
+          %th Ação
+          %th Link
+          %th
+      %tbody 
+        - if @project.navs.present?
+          - @project.navs.order(created_at: :asc).each do |nav|
+            %tr
+              %td.collapsing= nav.id
+              %td= nav.label
+              %td.collapsing= nav.active ? "Sim" : "Não"
+              %td.collapsing= nav.page_type
+              %td
+                - if nav.link?
+                  = nav.url
+                - else
+                  nav.page.name
+              %td.collapsing
+                = link_to "Editar", edit_project_nav_path(@project, nav), class: 'ui button blue tiny'
+                = link_to "Remover", project_nav_path(@project, nav), class: 'ui button red tiny', data: { confirm: t(:confirm)}
+        - else
+          %tr 
+            %td{colspan: 6}
+              %i Nenhum menu criado.

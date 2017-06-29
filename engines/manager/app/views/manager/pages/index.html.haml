@@ -1,0 +1,33 @@
+.row
+  .column
+    %h3 Páginas
+    = link_to "+ Adicionar nova página", new_project_page_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead 
+        %tr
+          %th{colspan: 5}
+            Total listado: #{@project.pages.count}
+        %tr 
+          %th Nº
+          %th Nome
+          %th Criado em
+          %th Ativa?
+          %th
+      %tbody 
+        - if @project.pages.present?
+          - @project.pages.order(created_at: :asc).each do |page|
+            %tr
+              %td.collapsing= page.id
+              %td= page.name
+              %td.collapsing= page.created_at.strftime("%d/%m/%Y")
+              %td.collapsing= page.active ? "Sim" : "Não"
+              %td.collapsing
+                = link_to "editar", edit_project_page_path(@project, page), class: 'ui button tiny blue'
+                = link_to "remover", project_page_path(@project, page), method: :delete, class: 'ui button tiny red', data: { confirm: t(:confirm)}
+        - else
+          %tr 
+            %td{colspan: 5}
+              %i Nenhuma página criada.

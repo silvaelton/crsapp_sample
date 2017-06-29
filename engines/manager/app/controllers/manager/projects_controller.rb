@@ -3,10 +3,15 @@ require_dependency 'manager/application_controller'
 module Manager
   class ProjectsController < ApplicationController 
     before_action :authenticate_user!
-    before_action :set_project
+    before_action :set_project, only: [:edit, :update, :show]
+
+    layout 'manager/project'
 
     def index
       @projects = Manager::Project.all.order(created_at: :asc)
+    end
+
+    def show
     end
 
     def new

@@ -1,0 +1,25 @@
+.row
+  .column
+    %h3 Inscritos
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead 
+        %tr 
+          %th Nº
+          %th CPF
+          %th Nome
+          %th Situação
+      %tbody 
+        - if @project.candidates.present?
+          %tr
+            %td{colspan: 4}
+              = @project.candidates.count
+          - @project.candidates.order(created_at: :asc).each do |candidate|
+            %tr
+              %td
+        - else
+          %tr 
+            %td{colspan: 4}
+              %i Nenhuma inscrição realizada

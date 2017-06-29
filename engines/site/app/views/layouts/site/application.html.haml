@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Site
+    = stylesheet_link_tag    "site/application", media: "all"
+    = javascript_include_tag "site/application"
+    = csrf_meta_tags
+  %body
+    = render 'layouts/site/header'
+    .ui.grid.container
+      .three.wide.column
+        = render 'layouts/site/nav'
+      .one.wide.column
+      .twelve.wide.column
+        = yield
+    .ui.grid.container
+      = render 'layouts/site/footer'

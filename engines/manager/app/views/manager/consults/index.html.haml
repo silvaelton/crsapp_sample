@@ -1,0 +1,26 @@
+.row
+  .column
+    %h3 Consultas
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead 
+        %tr 
+          %th Nº
+          %th CPF
+          %th Nome
+          %th Situação
+          %th Data/Hora
+      %tbody 
+        - if @project.consults.present?
+          %tr
+            %td{colspan: 5}
+              = @project.consults.count
+          - @project.consults.order(created_at: :asc).each do |candidate|
+            %tr
+              %td
+        - else
+          %tr 
+            %td{colspan: 5}
+              %i Nenhuma consulta realizada

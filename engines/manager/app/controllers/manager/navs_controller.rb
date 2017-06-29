@@ -6,6 +6,8 @@ module Manager
     before_action :set_project
     before_action :set_nav, only: [:edit, :update, :destroy]
 
+    layout 'manager/project'
+
     def index
       @navs = @project.navs.order(created_at: :asc)
     end
@@ -52,7 +54,7 @@ module Manager
     private
 
     def set_params
-      params.require(:project).permit(:name, :email, :password, :situation)
+      params.require(:nav).permit(:name, :email, :password, :situation)
     end
 
     def set_project

@@ -6,6 +6,8 @@ module Manager
     before_action :set_project
     before_action :set_page, only: [:edit, :update, :destroy]
 
+    layout 'manager/project'
+
     def index
       @pages = @project.pages.order(created_at: :asc)
     end
@@ -39,12 +41,17 @@ module Manager
     end
 
     def destroy
+      @page.destroy
+
+      flash[:success] = t :success
+      
+      redirect_to action: :index
     end
 
     private
 
     def set_params
-      params.require(:project).permit(:name, :email, :password, :situation)
+      params.require(:page).permit(:name, :content, :active)
     end
 
     def set_project

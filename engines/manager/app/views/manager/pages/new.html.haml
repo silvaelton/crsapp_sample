@@ -1,0 +1,7 @@
+.row
+  .column
+    %h3 Nova página
+    = link_to "Voltar para listagem", project_pages_path(@project)
+  .ui.divider.hidden
+  .column
+    = render 'form'

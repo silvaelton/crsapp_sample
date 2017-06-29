@@ -6,6 +6,8 @@ module Manager
     before_action :set_project
     before_action :set_candidate, only: [:edit, :update, :destroy]
 
+    layout 'manager/project'
+    
     def index
       @candidates = @project.candidates.order(created_at: :asc)
     end
