@@ -19,6 +19,18 @@ gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
 gem 'haml'
 
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'fog-aws'
+gem 'remotipart'
+
+gem 'has_scope'
+gem 'mailgun-ruby'
+gem 'file_validators'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
