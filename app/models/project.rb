@@ -8,5 +8,7 @@ class Project < ApplicationRecord
   has_many :consults
   has_many :candidates
 
+  belongs_to :home_page, class_name: ::Page
+
   enum situation: ['em_desenvolvimento', 'em_produção', 'fechado']
 end
