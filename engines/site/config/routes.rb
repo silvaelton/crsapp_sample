@@ -4,7 +4,7 @@ Site::Engine.routes.draw do
     resources :pages, only: [:show]
     resources :candidates, only: [:index, :new, :create], path: 'inscricao'
     resources :consults, path: 'consultas', only: [:index, :new, :create] 
-    namespace :restrict do 
+    namespace :restrict, path: 'restrito' do 
       resources :candidates, only: [:index, :edit, :update]
       resources :sessions, only: [:new, :create] do 
         collection do
