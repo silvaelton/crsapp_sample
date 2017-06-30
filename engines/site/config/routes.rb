@@ -5,6 +5,8 @@ Site::Engine.routes.draw do
     resources :candidates, only: [:index, :new, :create], path: 'inscricao'
     resources :consults, path: 'consultas', only: [:index, :new, :create] 
     namespace :restrict, path: 'restrito' do 
+      get '/', to: 'sessions#new'
+
       resources :candidates, only: [:index, :edit, :update]
       resources :sessions, only: [:new, :create] do 
         collection do
