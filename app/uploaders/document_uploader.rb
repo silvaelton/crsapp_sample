@@ -3,7 +3,8 @@ class DocumentUploader < CarrierWave::Uploader::Base
   if Rails.env.development?
     storage :file
   else
-    storage :fog
+    storage :file
+    #storage :fog
   end
 
   def store_dir

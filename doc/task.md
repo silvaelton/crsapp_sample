@@ -13,7 +13,7 @@ x área restrita do candidato
 x edição de inscrição do candidato
 - disparo de email para candidato (inscrição)
 x atualização de situação de inscrito
-
+- colocar a main_app para listar
 
 # não é prioridade
 
