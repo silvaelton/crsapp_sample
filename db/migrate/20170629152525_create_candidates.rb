@@ -3,7 +3,6 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
     create_table :candidates do |t|
 
       t.integer :project_id
-      
       t.string  :name
       t.string  :rg
       t.integer :gender
