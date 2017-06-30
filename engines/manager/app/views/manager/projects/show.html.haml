@@ -1,0 +1,23 @@
+%h4 Resumo do projeto
+
+%table.ui.table.striped.celled
+  %thead
+    %tr
+      %th Total de inscritos
+      %th Total de Processando
+      %th Total de Homologados
+      %th Total de Indeferidos
+  %tbody
+    %tr
+      %td= @project.candidates.count
+      %td= @project.candidates.where(status: 0).count
+      %td= @project.candidates.where(status: 1).count
+      %td= @project.candidates.where(status: 2).count
+
+%table.ui.table.striped.celled
+  %thead
+    %tr
+      %th Total de projetos recebidos
+  %tbody
+    %tr
+      %td 0

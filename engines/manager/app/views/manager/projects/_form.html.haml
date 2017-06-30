@@ -1,17 +1,40 @@
 = simple_form_for @project do |f|
-  = f.input :title
-  = f.input :slug
-  = f.input :mini_description
-  = f.input :home_page_id
-  = f.input :start, as: :string, input_html: { class: 'date'} 
-  = f.input :end, as: :string, input_html: { class: 'date'} 
+  .fields
+    .sixteen.wide.field
+      = f.input :title
+  .fields
+    .sixteen.wide.field
+      = f.input :slug
+  .fields
+    .sixteen.wide.field
+      = f.input :mini_description
+  .fields
+    .sixteen.wide.field
+      = f.input :home_page_id, as: :select, collection: Page.all.where(active: true), include_blank: false
+  .fields
+    .four.wide.field
+      = f.input :start, as: :string, input_html: { class: 'date', value: f.object.start.present? ? localize(f.object.start) : nil} 
+    .four.wide.field
+      = f.input :end, as: :string, input_html: { class: 'date', value: f.object.end.present? ? localize(f.object.end) : nil} 
 
-  = f.input :subscribe_start, as: :string, input_html: { class: 'date'} 
-  = f.input :subscribe_end, as: :string, input_html: { class: 'date'} 
-  = f.input :allow_subscribe,as: :select, include_blank: false, default: false
+  .fields
+    .four.wide.field
+      = f.input :subscribe_start, as: :string, input_html: { class: 'date', value: f.object.subscribe_start.present? ? localize(f.object.subscribe_start) : nil} 
+    .four.wide.field
+      = f.input :subscribe_end, as: :string, input_html: { class: 'date', value: f.object.subscribe_end.present? ? localize(f.object.subscribe_end) : nil} 
+    .four.wide.field
+      = f.input :allow_subscribe,as: :select, include_blank: false, default: false
    
-  = f.input :consult_start, as: :string, input_html: { class: 'date'} 
-  = f.input :consult_end , as: :string, input_html: { class: 'date'}      
-  = f.input :allow_consult, as: :select, include_blank: false,default: false
+  .fields
+    .four.wide.field
+      = f.input :consult_start, as: :string, input_html: { class: 'date', value: f.object.consult_start.present? ? localize(f.object.consult_start) : nil} 
+    .four.wide.field
+      = f.input :consult_end , as: :string, input_html: { class: 'date', value: f.object.consult_end.present? ? localize(f.object.consult_end) : nil}      
+    .four.wide.field
+      = f.input :allow_consult, as: :select, include_blank: false,default: false
    
-  = f.input :situation, default: 0
+  .fields
+    .four.wide.field
+      = f.input :situation, as: :select, collection: Project.situations.map { |k,v| [k.humanize, k]}
+  .ui.divider
+  = f.button :submit, class: 'ui button green'

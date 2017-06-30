@@ -6,6 +6,17 @@
   .column
     %table.ui.table.striped.celled.bordered
       %thead 
+        %tr
+          %th
+            Total: #{@project.candidates.count}
+          %th.collapsing
+            Processando: #{@project.candidates.where(status:0).count}
+          %th.collapsing
+            Homologados: #{@project.candidates.where(status:1).count}
+          %th.collapsing
+            Indeferidos: #{@project.candidates.where(status:2).count}
+    %table.ui.table.striped.celled.bordered
+      %thead 
         %tr 
           %th Nº
           %th CPF
@@ -13,12 +24,12 @@
           %th Situação
       %tbody 
         - if @project.candidates.present?
-          %tr
-            %td{colspan: 4}
-              = @project.candidates.count
           - @project.candidates.order(created_at: :asc).each do |candidate|
             %tr
-              %td
+              %td.collapsing= link_to candidate.id, edit_project_candidate_path(@project, candidate)
+              %td.collapsing= link_to candidate.cpf, edit_project_candidate_path(@project, candidate)
+              %td= candidate.name
+              %td.collapsing= candidate.status
         - else
           %tr 
             %td{colspan: 4}

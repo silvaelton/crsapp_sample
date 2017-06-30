@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      project: "Projecto"
+    attributes:
+      project:
+        title: "Título"
+        slug: "URL-slug"
+        mini_description: "Pequena descrição"
+        start: "Início"
+        end: "Fim"
+        subscribe_start: "Início das inscrições"
+        subscribe_end: "Fim das inscrições"
+        allow_subscribe: "inscrições ativas?"
+        consult_start: "Início das consultas"
+        consult_end: "Fim das consultas"
+        allow_consult: "Consultas ativas?"
+        situation: "Situação"

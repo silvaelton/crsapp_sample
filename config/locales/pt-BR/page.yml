@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      page: "Página"
+    attributes:
+      page:
+        name: "Título da página"
+        content: "Conteúdo"
+        active: "Ativa?"

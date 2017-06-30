@@ -12,10 +12,6 @@ module Manager
       @candidates = @project.candidates.order(created_at: :asc)
     end
 
-    def new
-      @candidate  = @project.candidates.new
-    end
-
     def edit
     end
 
@@ -23,30 +19,24 @@ module Manager
 
       if @candidate.update(set_params)
         flash[:success] = t :success
-        redirect_to action: :index
+        redirect_to action: :edit
       else
-        render action: :new
+        render action: :edit
       end
-    end
-
-    def destroy
-      @candidate.destroy
-
-      redirect_to action: :index
     end
 
     private
 
     def set_params
-      params.require(:project).permit(:name, :email, :password, :situation)
+      params.require(:candidate).permit(:status)
     end
 
     def set_project
       @project = Manager::Project.friendly.find(params[:project_id])
     end
 
-    def set_consult
-      @candidate = @project.consults.find(params[:id])
+    def set_candidate
+      @candidate = @project.candidates.find(params[:id])
     end
 
   end

@@ -1,0 +1,18 @@
+.row
+  .column
+    %h3 Visualização de consulta ##{@consult.id}
+    = link_to "Voltar para listagem", project_candidates_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    = simple_form_for [@project, @consult] do |f|
+      = f.input :situation, label: "Selecione a situação da consulta", as: :select, include_blank: false, collection: ::Consult.situations.keys
+      %br/
+      = f.submit "Atualizar situação", class: 'ui button green tiny'
+.ui.divider.hidden    
+.row
+  .column
+    %h4 Conteúdo da consulta
+.row
+  .column
+    = @consult.content.html_safe

@@ -49,7 +49,7 @@ module Manager
     private
 
     def set_params
-      params.require(:project).permit(:name, :email, :password, :situation)
+      params.require(:consult).permit(:situation)
     end
 
     def set_project

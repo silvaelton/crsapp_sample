@@ -34,16 +34,11 @@ module Manager
 
     def update
 
-      if params[:project][:password].blank?
-        params[:project].delete :password
-        params[:project].delete :password_confirmation
-      end
-
       if @project.update(set_params)
         flash[:success] = t :success
-        redirect_to action: :index
+        redirect_to action: :edit
       else
-        render action: :new
+        render action: :edit
       end
     end
 
@@ -53,7 +48,10 @@ module Manager
     private
 
     def set_params
-      params.require(:project).permit(:name, :email, :password, :situation)
+      params.require(:project)
+            .permit(:title, :slug, :mini_description, :home_page_id, :start, 
+                    :end, :subscribe_start, :subscribe_end, :allow_subscribe, 
+                    :consult_start, :consult_end, :allow_consult)
     end
 
     def set_project

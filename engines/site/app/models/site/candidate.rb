@@ -29,8 +29,6 @@ module Site
               file_content_type: { allow: ['image/jpeg', 'image/png', 'application/pdf'] } 
 
 
-    mount_uploader :document_one, ::DocumentUploader
-    mount_uploader :document_two, ::DocumentUploader
 
     private
 

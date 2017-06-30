@@ -1,20 +1,20 @@
 # prioridade
 
-- edição do projeto
-- editor de texto rico
-- atualização de situação de consultas
-- permissão de usuário
+x edição do projeto
+x editor de texto rico
+x atualização de situação de consultas
+x permissão de usuário
 - trocar minha senha
-- inscrição do candidato 
+x inscrição do candidato 
 - envio de documentos para amazon
-- visualização de candidato
-- área restrita do candidato
+x visualização de candidato
+x área restrita do candidato
 - trocar senha do candidato
-- edição de inscrição do candidato
+x edição de inscrição do candidato
 - disparo de email para candidato (inscrição)
+x atualização de situação de inscrito
 
 
 # não é prioridade
 
-- atualização de situação de inscrito
 - gerenciador de popup

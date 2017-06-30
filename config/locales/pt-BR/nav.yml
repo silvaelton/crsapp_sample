@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      nav: "Menu"
+    attributes:
+      nav:
+        label: "Título"
+        page_type: "Tipo de menu"
+        url: "URL"
+        page: "Página"
+        order: "Ordem"
+        open_new_page: "Abrir em nova página?"
+        active: "Ativo?"

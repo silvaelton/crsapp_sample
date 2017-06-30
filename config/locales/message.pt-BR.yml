@@ -1,0 +1,5 @@
+pt-BR:
+  success: "Operação realizada com sucesso!"
+  danger: "Operação não pode ser realizada!"
+  confirm: "Tem certeza que deseja executar esta operação?"
+  disable_with: "Aguarde..."

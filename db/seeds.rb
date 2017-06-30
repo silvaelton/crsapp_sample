@@ -16,3 +16,10 @@ User.create({
   password: "@log2017",
   situation: 1
 })
+
+User.create({
+  name: "Coordenador" ,
+  email: "coordenador@coordenador.com",
+  password: "@coord2017",
+  situation: 1
+})

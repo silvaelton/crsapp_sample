@@ -1,6 +1,8 @@
 = simple_form_for [@project, @page] do |f|
   = f.input :name, input_html: { placeholder: "Informe o título da página"}
-  = f.input :content, input_html: { placeholder: "Informe o conteúdo da página", class: 'tinymce'}
+  %br/
+  = f.trix_editor :content, html: { style: 'height: 200px !important'}
+  %br/
   = f.input :active, as: :select, include_blank: false
   .ui.header.hidden
   .field
