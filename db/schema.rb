@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.integer  "gender"
     t.date     "born"
     t.string   "cpf"
+    t.string   "uf"
     t.string   "address"
     t.string   "burgh"
     t.string   "city"

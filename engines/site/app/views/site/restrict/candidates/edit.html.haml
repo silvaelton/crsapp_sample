@@ -1,0 +1,11 @@
+.ui.grid
+  .row
+    .column
+      %h2
+        Área restrita - Edição de inscrição
+      %p 
+        = link_to "Voltar para o início", project_restrict_candidates_path(@project), class: 'ui button blue tiny'
+        = link_to "Finalizar sessão", logout_project_restrict_sessions_path(@project), class: 'ui button gray tiny', data: { method: :delete }
+  .row
+    .column
+      = render 'form'

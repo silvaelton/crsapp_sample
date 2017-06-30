@@ -8,6 +8,7 @@ $(document).ready(function() {
   $('.cep').mask("00000-000", {placeholder: "00000-000"});
   $('.percent').mask("00.0", {placeholder: "00.0"});
   $('.coin').mask("######0.00", {reverse: true});
+  $('.uf').mask("AA");
   $('.money').mask('000.000.000.000,00', {reverse: true});
   
 })

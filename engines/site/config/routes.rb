@@ -5,8 +5,12 @@ Site::Engine.routes.draw do
     resources :candidates, only: [:index, :new, :create], path: 'inscricao'
     resources :consults, path: 'consultas', only: [:index, :new, :create] 
     namespace :restrict do 
-      resources :candidates, only: [:show]
-      resources :sessions, only: [:new, :create]
+      resources :candidates, only: [:index, :edit, :update]
+      resources :sessions, only: [:new, :create] do 
+        collection do
+          delete '/logout', to: 'sessions#destroy'
+        end
+      end
     end
   end
 

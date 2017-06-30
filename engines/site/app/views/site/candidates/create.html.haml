@@ -1,0 +1,88 @@
+.ui.grid
+  .row
+    .column
+      %h4
+        %p 
+          Seu formulário de inscrição e sua documentação no foram recebidos com sucesso. 
+      %p 
+        Aguarde a homologação de sua inscrição.
+        Para acessar a área do candidato 
+        = link_to "clique aqui.", project_restrict_candidates_path
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Nº de inscrição
+            %th Data
+            %th Situação
+            %th Nome Completo
+            %th.collapsing CPF
+        %tbody
+          %tr 
+            %td= @candidate.id
+            %td= @candidate.created_at.strftime("%d/%m/%Y às %H:%M")
+            %td= @candidate.status
+            %td= @candidate.name
+            %td= @candidate.cpf
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Data de nascimento
+            %th Sexo
+            %th E-mail
+            %th Telefone
+            %th Celular
+        %tbody
+          %tr 
+            %td= @candidate.born.strftime("%d/%m/%Y")
+            %td= @candidate.gender
+            %td= @candidate.email
+            %td= @candidate.telephone
+            %td= @candidate.celphone
+
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th CEP
+            %th.collapsing Estado
+            %th Cidade
+            %th Endereço
+        %tbody
+          %tr 
+            %td.collapsing= @candidate.cep
+            %td= @candidate.uf.upcase
+            %td= @candidate.city
+            %td= @candidate.address
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing CNPJ
+            %th Nome Fantasia
+            %th Razão Social
+        %tbody
+          %tr 
+            %td= @candidate.cnpj
+            %td= @candidate.fantasy_name
+            %td= @candidate.social_reason
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Arquivo 1
+            %th Arquivo 2
+        %tbody
+          %tr 
+            %td= link_to "Visualizar", @candidate.document_one_url, target: '_blank'
+            %td= link_to "Visualizar", @candidate.document_two_url, target: '_blank'

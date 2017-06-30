@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        'site/candidate':
+          attributes:
+            document_one:
+              file_size_is_less_than_or_equal_to: "Arquivo de tamanho não permitido (máximo 5MB)"

@@ -9,3 +9,10 @@ Project.create({
   id: 1,
   title: "Exemplo 1"
 })
+
+User.create({
+  name: "Homologação" ,
+  email: "homolog@homolog.com",
+  password: "@log2017",
+  situation: 1
+})

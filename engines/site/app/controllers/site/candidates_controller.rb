@@ -17,6 +17,7 @@ module Site
       @candidate = @project.candidates.new(set_params)
 
       if @candidate.save
+        session[:candidate_id] = @candidate.id
         flash[:success] = t(:success)
       else
         render action: :new
@@ -24,6 +25,16 @@ module Site
     end
 
     private
+
+    def set_params
+      params.require(:candidate)
+            .permit(:name, :cpf, :rg, :gender, :born, :cep, :uf, 
+                    :city, :burgh, :address, :telephone, :celphone, 
+                    :email, :fantasy_name, :social_reason, :cnpj, 
+                    :password, :password_confirmation, :terms_use,
+                    :document_one, :document_two)
+ 
+    end
 
     def set_project
       @project = Site::Project.friendly.find(params[:project_id])

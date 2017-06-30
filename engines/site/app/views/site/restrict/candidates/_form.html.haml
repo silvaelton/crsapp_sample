@@ -1,0 +1,55 @@
+= simple_form_for [@project, current_candidate], url: project_restrict_candidate_path(@project, current_candidate), method: :put do |f|
+  .fields
+    .field.sixteen.wide 
+      = f.input :name
+  .fields
+    .field.three.wide
+      = f.input  :cpf, input_html: { class: 'cpf', disabled: true}
+    .field.three.wide
+      = f.input  :rg
+    .field.three.wide
+      = f.input :gender, as: :select, collection: ::Candidate.genders.keys, include_blank: false
+    .field.three.wide
+      = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born.present? ? localize(f.object.born) : nil}
+  .ui.divider
+  .fields
+    .field.three.wide
+      = f.input  :cep, input_html: { class: 'cep'}
+    .field.two.wide
+      = f.input  :uf, input_html: { class: 'uf'}
+    .field.six.wide
+      = f.input  :city
+    .field.five.wide
+      = f.input  :burgh
+  .fields
+    .field.sixteen.wide
+      = f.input  :address
+  .ui.divider
+  .fields
+    .field.three.wide
+      = f.input  :telephone
+    .field.three.wide
+      = f.input  :celphone
+    .field.six.wide
+      = f.input  :email
+  .ui.divider
+  .fields
+    .field.six.wide
+      = f.input  :fantasy_name
+    .field.six.wide
+      = f.input  :social_reason
+    .field.four.wide
+      = f.input  :cnpj, input_html: { class: 'cnpj'}
+  .ui.divider
+  .fields
+    .field.eight.wide
+      = f.input  :document_one, as: :file
+      = link_to "Visualizar aquivo enviado", f.object.document_one_url, target: '_blank'
+    .field.eight.wide
+      = f.input  :document_two, as: :file
+      = link_to "Visualizar aquivo enviado", f.object.document_two_url, target: '_blank'
+  .ui.divider
+
+  .fields
+    = f.submit "Realizar minha inscrição", class: 'ui button green'
+

@@ -1,0 +1,22 @@
+.ui.grid
+  .column
+    %h2.ui.image.header
+    .row
+      .column
+        %h2
+          Área do Candidato
+          |
+          = link_to "Quero me inscrever", new_project_candidate_path(@project)
+    .ui.divider.hidden 
+    .row
+      .column
+        = simple_form_for @session, url: project_restrict_sessions_path(@project) do |f|       
+          .fields
+            .four.wide.field
+              = f.input :candidate_id , label: false, placeholder:"Número de inscrição"
+            .four.wide.field
+              = f.input :password, label: false, placeholder:"Digite sua senha"
+          .fields
+            .four.wide.field
+              = f.submit "Realizar acesso", class: 'ui button green'
+          

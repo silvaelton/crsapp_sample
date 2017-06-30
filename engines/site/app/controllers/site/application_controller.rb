@@ -14,7 +14,8 @@ module Site
     end
 
     def authenticate_candidate!
-      current_candidate
+      if !current_candidate
+      end
     end
 
   end

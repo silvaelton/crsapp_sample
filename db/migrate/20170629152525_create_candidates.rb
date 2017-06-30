@@ -9,6 +9,7 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
       t.integer :gender
       t.date    :born
       t.string  :cpf
+      t.string  :uf
       t.string  :address
       t.string  :burgh
       t.string  :city

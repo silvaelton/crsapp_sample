@@ -28,8 +28,10 @@ gem 'fog-aws'
 gem 'remotipart'
 
 gem 'has_scope'
-gem 'mailgun-ruby'
 gem 'file_validators'
+gem 'validates_cpf_cnpj'
+gem 'validates_timeliness'
+gem 'email_validator'
 
 group :development, :test do
   gem 'byebug', platform: :mri
