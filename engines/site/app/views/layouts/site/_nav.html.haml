@@ -1,4 +1,4 @@
-.ui.vertical.menu
+.ui.vertical.menu{style: 'border: 0px !important; box-shadow: none !important;'}
   - if @project.navs.present?
     - @project.navs.order(:order).each do |nav|
       - if nav.link?
