@@ -27,9 +27,9 @@
               %td.collapsing= nav.page_type
               %td
                 - if nav.link?
-                  = nav.url
+                  = nav.url  rescue nil
                 - else
-                  = nav.page.name
+                  = nav.page.name rescue nil
               %td.collapsing
                 = link_to "Editar", edit_project_nav_path(@project, nav), class: 'ui button blue tiny'
                 = link_to "Remover", project_nav_path(@project, nav), class: 'ui button red tiny', data: { confirm: t(:confirm)}, method: :delete
