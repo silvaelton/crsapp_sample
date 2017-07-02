@@ -1,10 +1,16 @@
 = simple_form_for [@project, @page] do |f|
   = f.input :name, input_html: { placeholder: "Informe o título da página"}
   %br/
-  = f.trix_editor :content, html: { style: 'height: 200px !important'}
+  = f.input :content, input_html: { placeholder: "Informe o conteúdo da página", class: 'tinymce'}
   %br/
   = f.input :active, as: :select, include_blank: false
   .ui.header.hidden
   .field
     = f.button :submit, class: 'ui button green'
     = link_to t(:back), project_pages_path(@project), class: 'ui button'
+
+:javascript
+
+  $(document).ready(function() {
+    initTinyMCE();
+  })

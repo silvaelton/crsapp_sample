@@ -4,4 +4,5 @@
 //= require semantic.min.js
 //= require jquery.mask.min
 //= require mask
-//= require trix
+//= require tinymce-jquery
+//= require custom

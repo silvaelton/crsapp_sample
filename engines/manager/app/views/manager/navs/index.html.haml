@@ -32,7 +32,7 @@
                   = nav.page.name
               %td.collapsing
                 = link_to "Editar", edit_project_nav_path(@project, nav), class: 'ui button blue tiny'
-                = link_to "Remover", project_nav_path(@project, nav), class: 'ui button red tiny', data: { confirm: t(:confirm)}
+                = link_to "Remover", project_nav_path(@project, nav), class: 'ui button red tiny', data: { confirm: t(:confirm)}, method: :delete
         - else
           %tr 
             %td{colspan: 6}

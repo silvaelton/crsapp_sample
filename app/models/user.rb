@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  enum situation: ['visualizador', 'administrador']
+  enum situation: ['coordenador', 'administrador']
 end

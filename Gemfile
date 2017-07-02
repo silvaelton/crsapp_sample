@@ -33,8 +33,6 @@ gem 'validates_cpf_cnpj'
 gem 'validates_timeliness'
 gem 'email_validator'
 
-gem 'trix'
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
