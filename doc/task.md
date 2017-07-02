@@ -20,7 +20,8 @@ x Peço que corrija a opção de edição de texto a plataforma:[Adicionando mai
 
 
 - Configuração de domínio e DNS Hostgator para o domínio oficial
-- Recuperador de senha e inscrição
-- disparo de email para candidato (inscrição, homologação)
+x Recuperador de senha e inscrição
+x disparo de email para candidato (inscrição, homologação)
 - trocar minha senha
-- trocar senha do candidato
+x trocar senha do candidato
+- trocar o tipo da coordenação

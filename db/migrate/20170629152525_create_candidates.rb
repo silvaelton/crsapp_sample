@@ -28,6 +28,8 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
 
       t.integer :status, default: 0
 
+      t.string  :token 
+      
       t.timestamps
     end
   end

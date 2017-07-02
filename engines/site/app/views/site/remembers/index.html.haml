@@ -1,0 +1,31 @@
+.row
+  .column
+    %h3 Formulário de envio de consulta
+  .ui.divider.hidden
+  .column
+    = simple_form_for url_for, method: :get do |f|
+      .fields
+        .field.three.wide
+          = f.input :cpf, label: "CPF", input_html: { class: 'cpf', name: 'cpf', value: params[:cpf]}
+        .field.four.wide
+          = f.submit "Pesquisar", name: nil, class: 'ui button green small', style: 'margin-top: 21px'
+
+  .column
+    %table.ui.table.striped.celled
+      %thead
+        %tr
+          %th Concurso
+          %th.collapsing Nº de inscrição
+          %th CPF
+          %th
+      %tbody
+        - if @candidate.present?
+          %tr
+            %td= @candidate.project.title
+            %td= @candidate.id
+            %td.collapsing= @candidate.cpf
+            %td.collapsing= link_to "Resetar senha", new_project_remember_path(@project, candidate_id: @candidate.id), class: 'ui button green tiny'
+        - else
+          %tr 
+            %td{colspan: 3}
+              %i Nenhum CPF informado.

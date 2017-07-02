@@ -1,0 +1,9 @@
+= simple_form_for @candidate, url: project_remember_path(@project, @candidate.token), method: :put do |f|
+  .fields
+    .field.four.wide
+      = f.input :password, label: "Nova senha", placeholder: '*****'
+    .field.four.wide
+      = f.input :password_confirmation, placeholder: '*****'
+  .fields
+    .field.four.wide
+      = f.submit "Resetar senha", class: 'ui button green'

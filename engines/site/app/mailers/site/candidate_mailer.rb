@@ -12,5 +12,10 @@ module Site
       mail(to: @candidate.email, subject: "Inscrição realizada com sucesso!")
     end
 
+    def remember(candidate)
+      @candidate = candidate
+      mail(to: @candidate.email, subject: "Recuperação de senha")
+    end
+    
   end
 end

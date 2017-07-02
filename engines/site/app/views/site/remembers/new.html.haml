@@ -1,0 +1,9 @@
+.row
+  .column
+    %h3 Recuperação de senha
+  .ui.divider.hidden
+  .column
+    - if @candidate.nil?
+      = render 'error'
+    - else 
+      = render 'success'

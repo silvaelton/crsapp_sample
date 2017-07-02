@@ -1,4 +1,7 @@
 class Candidate < ApplicationRecord
+
+  belongs_to :project
+  
   enum status: ['processando', 'homologado', 'indeferido']
   enum gender: ['masculino', 'feminino']
 

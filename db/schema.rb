@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.string   "document_one"
     t.string   "document_two"
     t.integer  "status",        default: 0
+    t.string   "token"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

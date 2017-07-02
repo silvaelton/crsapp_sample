@@ -4,6 +4,8 @@ Site::Engine.routes.draw do
     resources :pages, only: [:show]
     resources :candidates, only: [:index, :new, :create], path: 'inscricao'
     resources :consults, path: 'consultas', only: [:index, :new, :create] 
+    resources :remembers, path: 'lembrar'
+    
     namespace :restrict, path: 'restrito' do 
       get '/', to: 'sessions#new'
 
