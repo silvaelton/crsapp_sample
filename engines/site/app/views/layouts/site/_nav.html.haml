@@ -2,9 +2,9 @@
   - if @project.navs.present?
     - @project.navs.order(:order).each do |nav|
       - if nav.link?
-        %a.item{href: "#{nav.url}"}= nav.label
+        %a.item{href: "#{nav.url rescue nil}"}= nav.label
       - else
-        %a.item{href: "#{project_page_path(@project, nav.page)}"}= nav.label
+        %a.item{href: "#{project_page_path(@project, nav.page) rescue nil}"}= nav.label 
   - else
     %a.item{hreaf: "#"}
       %i Nenhum link cadastrado
