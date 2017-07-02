@@ -18,6 +18,9 @@ module Site
 
       if @candidate.save
         session[:candidate_id] = @candidate.id
+        
+        Site::CandidateMailer.subscribe(@candidate).deliver_now! rescue nil
+        
         flash[:success] = t(:success)
       else
         render action: :new

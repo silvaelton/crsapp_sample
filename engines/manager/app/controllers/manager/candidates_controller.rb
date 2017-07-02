@@ -19,6 +19,11 @@ module Manager
 
       if @candidate.update(set_params)
         flash[:success] = t :success
+
+        if @candidate.homologado?
+          Site::CandidateMailer.homolog(@candidate).deliver_now! 
+        end
+        
         redirect_to action: :edit
       else
         render action: :edit
