@@ -3,4 +3,7 @@
     %h3 Formulário de envio de consulta
   .ui.divider.hidden
   .column
-    = render 'form'
+    - if Date.current >= @project.subscribe_start 
+      = render 'form'
+    - else
+      %i Consultas não estão abertas. Consulte o cronograma.

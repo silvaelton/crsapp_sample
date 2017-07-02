@@ -4,4 +4,7 @@
     = link_to "Accessar área restrita", new_project_restrict_session_path(@project)
   .ui.divider.hidden
   .column
-    = render 'form'
+    - if Date.current >= @project.subscribe_start 
+      = render 'form'
+    - else
+      %i Inscrições não estão abertas. Consulte o cronograma.
