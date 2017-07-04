@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.text     "observation"
     t.string   "document_one"
     t.string   "document_two"
-    t.integer  "status",        default: 0
+    t.string   "document_number"
+    t.integer  "status",          default: 0
     t.string   "token"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "consults", force: :cascade do |t|
