@@ -12,7 +12,8 @@ module Site
     validates :name, presence: true
     validates :cpf, cpf: true, presence: true
     validates :cnpj, cnpj: true, presence: true
-
+    validates :document_number, presence: true 
+    
     validates :rg, :gender, :born, :cep, :uf, :city, :burgh, :address, presence: true
     validates :uf, length: { minimum: 2, maximum: 2}
     validates :email, email: true, presence: true

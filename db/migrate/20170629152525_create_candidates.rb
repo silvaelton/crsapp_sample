@@ -25,7 +25,8 @@ class CreateCandidates < ActiveRecord::Migration[5.0]
       
       t.string  :document_one
       t.string  :document_two
-
+      t.string  :document_number
+      
       t.integer :status, default: 0
 
       t.string  :token 

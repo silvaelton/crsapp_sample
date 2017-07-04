@@ -35,7 +35,7 @@ module Site
                     :city, :burgh, :address, :telephone, :celphone, 
                     :email, :fantasy_name, :social_reason, :cnpj, 
                     :password, :password_confirmation, :terms_use,
-                    :document_one, :document_two)
+                    :document_one, :document_two, :document_number)
  
     end
 

@@ -22,6 +22,7 @@ pt-BR:
         cnpj: "CNPJ"
         document_one: "Comprovante de regularidade junto ao CAU/BR"
         document_two: "Declaração de Quitação IAB/CE"
+        document_number: "Nº de Registro no CAU/BR"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
         terms_use: "Declaro estar ciente e de acordo com todas as regras do Edital do respectivo concurso."
