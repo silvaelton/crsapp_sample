@@ -303,12 +303,12 @@
                                   %th{"st-content" => "fulltext-content", :style => "font-family: Helvetica, arial, sans-serif; font-size: 12px; color: #666666; text-align:left; line-height: 30px; padding-left: 10px;"}
                                     Documento 1
                                   %th{"st-content" => "fulltext-content", :style => "font-family: Helvetica, arial, sans-serif; font-size: 12px; color: #666666; text-align:left; line-height: 30px; padding-left: 10px;"}
-                                    Documento 2
+                                    Nº de registro
                                 %tr
                                   %td{"st-content" => "fulltext-content", :style => "font-family: Helvetica, arial, sans-serif; font-size: 12px; color: #666666; text-align:left; line-height: 30px; padding-left: 10px;"}
-                                    = link_to "Visualizar", @candidate.document_two_url, target: '_blank'
-                                  %td{"st-content" => "fulltext-content", :style => "font-family: Helvetica, arial, sans-serif; font-size: 12px; color: #666666; text-align:left; line-height: 30px; padding-left: 10px;"}
                                     = link_to "Visualizar", @candidate.document_one_url, target: '_blank'
+                                  %td{"st-content" => "fulltext-content", :style => "font-family: Helvetica, arial, sans-serif; font-size: 12px; color: #666666; text-align:left; line-height: 30px; padding-left: 10px;"}
+                                    = link_to "Visualizar", @candidate.document_number, target: '_blank'
                         %tr
                           %td{:height => "20", :style => "font-size:1px; line-height:1px; mso-line-height-rule: exactly;"}  
                         / Spacing
