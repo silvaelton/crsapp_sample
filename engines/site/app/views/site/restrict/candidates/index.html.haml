@@ -79,8 +79,10 @@
         %thead
           %tr
             %th Arquivo 1
-            %th Arquivo 2
+            %th Nº do registro
         %tbody
           %tr 
             %td= link_to "Visualizar", current_candidate.document_one_url, target: '_blank'
-            %td= link_to "Visualizar", current_candidate.document_two_url, target: '_blank'
+            %td= current_candidate.document_number
+
+
