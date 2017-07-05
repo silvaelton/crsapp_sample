@@ -5,13 +5,13 @@ module Site
   class Candidate < ::Candidate
     
     attr_accessor :password_confirmation
-    
-    validates_uniqueness_of :cpf,   scope: :project_id
-    validates_uniqueness_of :cnpj,  scope: :project_id
 
     validates :name, presence: true
     validates :cpf, cpf: true, presence: true
     validates :document_number, presence: true 
+    
+    validates_uniqueness_of :cpf,   scope: :project_id
+    validates_uniqueness_of :cnpj,  scope: :project_id
     
     validates :rg, :gender, :born, :cep, :uf, :city, :burgh, :address, presence: true
     validates :uf, length: { minimum: 2, maximum: 2}
