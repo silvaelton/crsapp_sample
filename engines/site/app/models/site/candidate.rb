@@ -11,7 +11,6 @@ module Site
     validates :document_number, presence: true 
     
     validates_uniqueness_of :cpf,   scope: :project_id
-    validates_uniqueness_of :cnpj,  scope: :project_id
     
     validates :rg, :gender, :born, :cep, :uf, :city, :burgh, :address, presence: true
     validates :uf, length: { minimum: 2, maximum: 2}
@@ -31,6 +30,7 @@ module Site
 
     validates :cnpj, cnpj: true, allow_blank: true
     validates :cnpj, presence: true, if: 'self.fantasy_name.present? || self.social_reason.present?'
+    validates_uniqueness_of :cnpj,  scope: :project_id, if: "self.cnpj.present?"
     
     private
 
