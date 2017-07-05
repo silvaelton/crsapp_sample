@@ -47,14 +47,14 @@
   .fields
     .field.eight.wide
       = f.input  :document_one, as: :file
-    .field.eight.wide
-      = f.input  :document_two, as: :file
   .ui.divider
   .fields
     .field.four.wide
       = f.input  :password
+      = f.hint   "Mín. 6, Max. 18 dígitos"
     .field.four.wide
       = f.input  :password_confirmation
+      = f.hint   "Mín. 6, Max. 18 dígitos"
   .fields
     .field.sixteen.wide
       = f.label :terms_use

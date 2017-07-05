@@ -6,7 +6,6 @@ module Site
     before_action :set_project
     
     def index
-      redirect_to action: :new
     end
 
     def new
