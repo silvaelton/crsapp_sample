@@ -9,3 +9,8 @@
 trix-editor {
   height: 300px !important;
 }
+
+.ui.success.message {
+  background-color: #c1f93e !important;
+  color: #2C662D;
+}

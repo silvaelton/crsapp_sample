@@ -42,12 +42,11 @@
       = f.input  :cnpj, input_html: { class: 'cnpj'}
   .ui.divider
   .fields
+    .field.four.wide
+      = f.input  :document_number, as: :string
     .field.eight.wide
       = f.input  :document_one, as: :file
       = link_to "Visualizar aquivo enviado", f.object.document_one_url, target: '_blank'
-    .field.eight.wide
-      = f.input  :document_two, as: :file
-      = link_to "Visualizar aquivo enviado", f.object.document_two_url, target: '_blank'
   .ui.divider
 
   .fields

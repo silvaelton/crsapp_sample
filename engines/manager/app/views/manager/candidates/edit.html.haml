@@ -8,7 +8,9 @@
     = simple_form_for [@project, @candidate] do |f|
       = f.input :status, label: "Selecione a situação do candidato", as: :select, include_blank: false, collection: ::Candidate.statuses.keys
       %br/
-      = f.submit "Atualizar situação", class: 'ui button green tiny'
+      = f.input :observation, label: "Observação", as: :text
+      %br/
+      = f.submit "Atualizar", class: 'ui button green tiny'
 .ui.divider.hidden    
 .row
   .column

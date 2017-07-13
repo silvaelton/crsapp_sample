@@ -86,3 +86,12 @@
             %td= current_candidate.document_number
 
 
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th Observação da coordenação
+        %tbody
+          %tr 
+            %td= current_candidate.observation ||= "Nenhuma observação"
