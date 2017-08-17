@@ -21,7 +21,7 @@ function initTinyMCE() {
   tinymce.init({
       selector: 'textarea.tinymce',
       language: 'pt_BR',
-      plugins : 'advlist autolink link uploadimage image lists charmap print preview',
+      plugins : 'advlist autolink link uploadimage image lists charmap print preview code',
       setup: function (editor) {
             editor.on('change', function () {
                 editor.save();

@@ -33,7 +33,7 @@ module Manager
     private
 
     def set_params
-      params.require(:candidate).permit(:status)
+      params.require(:candidate).permit(:status, :observation)
     end
 
     def set_project

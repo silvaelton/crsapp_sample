@@ -14,5 +14,8 @@
         = render 'layouts/manager/project_nav'
       .thirteen.wide.column
         .ui.segment
+          - flash.each do |key, value|
+            .ui.message{class: key}
+              = value
           = yield
     .ui.grid.container
