@@ -15,7 +15,7 @@ module Site
     def create
       @consult = @project.consults.new(set_params)
 
-      if @consult.save
+      if verify_recaptcha && @consult.save 
         flash[:success] = t :success
       else
         render action: :new

@@ -1,4 +1,6 @@
 = simple_form_for [@project, @consult] do |f|
   = f.input :content, label: "Descrição da consulta"
   .ui.divider.hidden
+  = recaptcha_tags
+  %br
   = f.submit "Enviar consulta", class: 'ui button green', data: { confirm: t(:confirm)}
