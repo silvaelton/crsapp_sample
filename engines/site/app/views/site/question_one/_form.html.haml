@@ -1,0 +1,11 @@
+= simple_form_for [@project,@question], url: project_question_one_index_path(@project) do |f|
+  .field.wide.four
+    = f.input :candidate_id, as: :string, label: "Nº de inscrição"
+  .field.wide.ten
+    = f.label "De que forma você tomou conhecimento do concurso?"
+  .field.wide.four
+    = f.input :answer, label: false, as: :select, collection: ::QuestionOne.answers.map { |k,v| [k.humanize, k]}, include_blank: "Selecione..."
+  .ui.divider.hidden
+  = recaptcha_tags
+  %br
+  = f.submit "Enviar resposta", class: 'ui button green'

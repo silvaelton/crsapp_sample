@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629152600) do
+ActiveRecord::Schema.define(version: 20170921160425) do
 
   create_table "candidates", force: :cascade do |t|
     t.integer  "project_id"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.integer  "gender"
     t.date     "born"
     t.string   "cpf"
-    t.string   "uf"
     t.string   "address"
     t.string   "burgh"
     t.string   "city"
@@ -35,11 +34,9 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.text     "observation"
     t.string   "document_one"
     t.string   "document_two"
-    t.string   "document_number"
-    t.integer  "status",          default: 0
-    t.string   "token"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "status",        default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "consults", force: :cascade do |t|
@@ -89,6 +86,14 @@ ActiveRecord::Schema.define(version: 20170629152600) do
     t.integer  "situation",        default: 0
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "question_ones", force: :cascade do |t|
+    t.integer  "candidate_id"
+    t.integer  "answer"
+    t.integer  "project_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
