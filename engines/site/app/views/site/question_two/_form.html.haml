@@ -1,0 +1,22 @@
+= simple_form_for [@project,@question], url: project_question_two_index_path(@project) do |f|
+  .fields
+    .field.wide.four
+      = f.input :candidate_id, as: :string, label: "Nº de inscrição", placeholder: "Digite o Nº"
+    .field.wide.four
+      = f.input :password, as: :password, label: "Senha", placeholder: "Digite sua senha"
+  .field.wide.ten
+    %br/
+    %p Indicação do membro da equipe
+  .fields
+    .field.wide.four
+      = f.input :name, label: "Nome", as: :string, placeholder: "Digite o nome do membro"
+    .field.wide.four
+      = f.input :cpf,  label: "CPF", as: :string, placeholder: "Digite o CPF do membro", input_html: { class: 'cpf'}
+  .field.wide.sixteen
+    = f.label "Declaro, para todos os fins, que concordo com as instruções disponibilizadas pela Coordenação do Concurso e que os dados preenchidos acima são verdadeiros."
+
+    = f.input :term_use,  label: false, as: :boolean
+  .ui.divider.hidden
+  /= recaptcha_tags
+  %br
+  = f.submit "Enviar resposta", class: 'ui button green', data: { disable_with: t(:disable_with)}

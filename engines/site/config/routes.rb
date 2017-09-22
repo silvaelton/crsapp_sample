@@ -2,6 +2,7 @@ Site::Engine.routes.draw do
 
   resources :projects, path: '/', only: [:show] do 
     resources :question_one, path: 'questionario'
+    resources :question_two, path: 'formulario_indicacao'
     resources :pages, only: [:show]
     resources :candidates, only: [:index, :new, :create], path: 'inscricao'
     resources :consults, path: 'consultas', only: [:index, :new, :create] 
