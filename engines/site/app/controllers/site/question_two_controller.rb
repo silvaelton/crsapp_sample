@@ -14,8 +14,8 @@ module Site
 
     def create
       @question = ::QuestionTwo.where(project_id: @project.id).new(set_params)
-      # verify_recaptcha && 
-      if @question.save 
+      
+      if verify_recaptcha && @question.save 
         flash[:success] = t :success
       else
         render action: :new

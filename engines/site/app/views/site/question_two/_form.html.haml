@@ -17,6 +17,6 @@
 
     = f.input :term_use,  label: false, as: :boolean
   .ui.divider.hidden
-  /= recaptcha_tags
+  = recaptcha_tags
   %br
   = f.submit "Enviar resposta", class: 'ui button green', data: { disable_with: t(:disable_with)}
