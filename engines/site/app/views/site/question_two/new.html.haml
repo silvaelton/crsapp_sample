@@ -14,7 +14,12 @@
     %br/
 
     %p Antes de efetuar a indicação, por favor, informe os seus dados de acesso: 
-    = render 'form'
+
+    - if Date.current <= Date.parse('2017-09-27')
+      = render 'form'
+    - else
+      %p
+        %b O prazo para indicação já se encerrou. 
 
     %br/
     %br/

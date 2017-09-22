@@ -6,6 +6,7 @@ Manager::Engine.routes.draw do
     resources :consults
     resources :navs
     resources :indications
+    resources :questions
     resources :pages
   end
 
