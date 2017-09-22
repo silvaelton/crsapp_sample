@@ -5,6 +5,7 @@ Manager::Engine.routes.draw do
     resources :candidates
     resources :consults
     resources :navs
+    resources :indications
     resources :pages
   end
 

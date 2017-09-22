@@ -1,0 +1,30 @@
+.row
+  .column
+    %h3 Membros indicados
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead 
+        %tr
+          %th{colspan: 5}
+            Listando #{@indications.count}
+        %tr 
+          %th Nº
+          %th Data/Hora
+          %th.collapsing Nº da inscrição
+          %th CPF
+          %th Nome
+      %tbody 
+        - if @indications.present?
+          - @indications.each_with_index do |indication, index|
+            %tr
+              %td.collapsing= index + 1
+              %td= indication.created_at.strftime("%d/%m/%Y %H:%M")
+              %td= link_to indication.candidate_id, manager.edit_project_candidate_path(@project,indication.candidate_id), target: '_blank'
+              %td.collapsing= indication.cpf
+              %td= indication.name
+        - else
+          %tr 
+            %td{colspan: 4}
+              %i Nenhuma indicação realizada
