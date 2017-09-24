@@ -95,3 +95,29 @@
         %tbody
           %tr 
             %td= current_candidate.observation ||= "Nenhuma observação"
+
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
+            %th.collapsing Nº de controle
+            %th Nome
+            %th CPF
+            %th Data/Hora
+        %tbody
+          - if ::QuestionTwo.where(project_id: @project.id, candidate_id: current_candidate.id).present?
+            - ::QuestionTwo.where(project_id: @project.id, candidate_id: current_candidate.id).each do |ind|
+              %tr 
+                %td= ::QuestionTwo.where(project_id: @project.id).order(created_at: :asc).map(&:candidate_id).find_index(current_candidate.id) + 1
+                %td= ind.name
+                %td= ind.cpf
+                %td= ind.created_at.strftime("%d/%m/%Y %H:%M")
+          - else 
+            %tr
+              %td{colspan: 4}
+                %i 
+                  Você ainda não realizou a indicação do membro.
+                  #{link_to "Clique aqui ", "/site/1/formulario_indicacao", target: '_blank'}              
+                  para realizar!

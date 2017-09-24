@@ -17,6 +17,11 @@ module Site
       
       if verify_recaptcha && @question.save 
         flash[:success] = t :success
+
+        @control_number = ::QuestionTwo.where(project_id: @project.id)
+                                        .order(created_at: :asc)
+                                        .map(&:candidate_id)
+                                        .find_index(@question.candidate_id)
       else
         render action: :new
       end
