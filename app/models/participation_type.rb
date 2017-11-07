@@ -1,0 +1,2 @@
+class ParticipationType < ApplicationRecord
+end

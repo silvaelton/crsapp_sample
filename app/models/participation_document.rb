@@ -1,0 +1,2 @@
+class ParticipationDocument < ApplicationRecord
+end
