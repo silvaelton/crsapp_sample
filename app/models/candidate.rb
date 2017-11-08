@@ -5,6 +5,7 @@ class Candidate < ApplicationRecord
   enum status: ['processando', 'homologado', 'indeferido']
   enum gender: ['masculino', 'feminino']
 
+  has_many :participations
   has_one :participation
 
   mount_uploader :document_one, ::DocumentUploader

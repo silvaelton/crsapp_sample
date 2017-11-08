@@ -2,9 +2,14 @@
   .row
     .column
       %h2
-        Área restrita 
-      %p 
-        = link_to "Editar minha inscrição", edit_project_restrict_candidate_path(@project, current_candidate), class: 'ui button blue tiny'
+        Área restrita
+      %p
+        = link_to "Editar minha inscrição", edit_project_restrict_candidate_path(@project, current_candidate), class: 'ui button blue tiny' if current_candidate.processando?
+        - if current_candidate.id == 1
+          - if current_candidate.participation.closed
+            = link_to "Visualizar meu projeto enviado", project_restrict_participations_path(@project), class: 'ui button blue tiny'
+          - else
+            = link_to "Enviar meu projeto", project_restrict_participations_path(@project), class: 'ui button green tiny'
         = link_to "Finalizar sessão", logout_project_restrict_sessions_path(@project), class: 'ui button gray tiny', data: { method: :delete }
   .row
     .column
@@ -17,7 +22,7 @@
             %th Nome Completo
             %th.collapsing CPF
         %tbody
-          %tr 
+          %tr
             %td= current_candidate.id
             %td= current_candidate.created_at.strftime("%d/%m/%Y às %H:%M")
             %td= current_candidate.status
@@ -35,7 +40,7 @@
             %th Telefone
             %th Celular
         %tbody
-          %tr 
+          %tr
             %td= current_candidate.born.strftime("%d/%m/%Y")
             %td= current_candidate.gender
             %td= current_candidate.email
@@ -53,7 +58,7 @@
             %th Cidade
             %th Endereço
         %tbody
-          %tr 
+          %tr
             %td.collapsing= current_candidate.cep
             %td= current_candidate.uf.upcase
             %td= current_candidate.city
@@ -68,7 +73,7 @@
             %th Nome Fantasia
             %th Razão Social
         %tbody
-          %tr 
+          %tr
             %td= current_candidate.cnpj
             %td= current_candidate.fantasy_name
             %td= current_candidate.social_reason
@@ -81,7 +86,7 @@
             %th Arquivo 1
             %th Nº do registro
         %tbody
-          %tr 
+          %tr
             %td= link_to "Visualizar", current_candidate.document_one_url, target: '_blank'
             %td= current_candidate.document_number
 
@@ -93,7 +98,7 @@
           %tr
             %th Observação da coordenação
         %tbody
-          %tr 
+          %tr
             %td= current_candidate.observation ||= "Nenhuma observação"
 
 
@@ -109,15 +114,15 @@
         %tbody
           - if ::QuestionTwo.where(project_id: @project.id, candidate_id: current_candidate.id).present?
             - ::QuestionTwo.where(project_id: @project.id, candidate_id: current_candidate.id).each do |ind|
-              %tr 
+              %tr
                 %td= ::QuestionTwo.where(project_id: @project.id).order(created_at: :asc).map(&:candidate_id).find_index(current_candidate.id) + 1
                 %td= ind.name
                 %td= ind.cpf
                 %td= ind.created_at.strftime("%d/%m/%Y %H:%M")
-          - else 
+          - else
             %tr
               %td{colspan: 4}
-                %i 
+                %i
                   Você ainda não realizou a indicação do membro.
-                  #{link_to "Clique aqui ", "/site/1/formulario_indicacao", target: '_blank'}              
+                  #{link_to "Clique aqui ", "/site/1/formulario_indicacao", target: '_blank'}
                   para realizar!

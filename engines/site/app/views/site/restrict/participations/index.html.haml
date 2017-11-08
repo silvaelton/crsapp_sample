@@ -3,6 +3,61 @@
     .column
       %h2
         Área restrita
+      = link_to "Retornar para página do candidato", project_restrict_candidates_path(@project, current_candidate), class: 'ui button blue tiny'
   .row
     .column
-    
+      %h1
+        Nº da pasta #{current_candidate.participation.id}
+        - if !current_candidate.participation.closed
+          - if current_candidate.participation.complete?
+            %br
+            .ui.message.positive{style: 'text-align: center'}
+              Seu projeto atende todos os critérios exigidos para finalização.
+              %br
+              %br
+              = link_to "CLIQUE AQUI PARA FINALIZAR", project_restrict_participation_close_path(@project, current_candidate.participation)
+          - else
+            %br
+            .ui.message.red{style: 'text-align: center'}
+              Seu projeto ainda não atende todos os critérios exigidos para finalização, verifique os itens marcados em vermelho como pendente.
+        - else
+          %br
+          .ui.message.green{style: 'text-align: center'}
+            Seu projeto foi finalizado com sucesso!
+            %br
+            = link_to "CLIQUE AQUI PARA EDITAR", project_restrict_participation_unclose_path(@project, current_candidate.participation)
+      - ParticipationType.all.order(id: :asc).each do |type|
+        %table.ui.table.striped.celled
+          %thead
+            %tr
+              %th{colspan: 3}
+                = type.name
+              %th.collapsing
+                - if type.complete?(current_candidate.participation)
+                  .ui.label.green Finalizado
+                - else
+                  .ui.label.red Pendente
+
+            %tr
+              %th{colspan: 4}= type.description
+          %tbody
+            - if !type.deny_form?(current_candidate.participation) && !current_candidate.participation.closed
+              %tr
+                %td{colspan: 4}
+                  = simple_form_for instance_variable_get("@document_#{type.id}"), url: project_restrict_participations_path(participation_type_id: type.id), method: :post do |f|
+                    .fields
+                      .field= f.input :document, as: :file, label: false
+                      .field= f.submit "Enviar arquivo", class: 'ui button gray large', data: { disable_with: 'Enviando o arquivo, aguarde...'}
+            - if type.participation_documents.present?
+              - type.participation_documents.each_with_index do |doc, index|
+                %tr
+                  %td.collapsing= index + 1
+                  %td.collapsing
+                    .ui.button.green.tiny arquivo enviado
+                    - if !current_candidate.participation.closed
+                      = link_to "remover arquivo".html_safe, project_restrict_participation_path(id: doc.id), method: :delete, data: { confirm: "Você tem certeza que deseja remover este arquivo?"}, class: 'ui button gray tiny icon'
+                  %td{colspan: 2}= link_to "Visualizar arquivo", doc.document_url, target: '_blank'
+            - else
+              %tr
+                %td
+                  %i Nenhum arquivo enviado.

@@ -20,8 +20,8 @@ Site::Engine.routes.draw do
 
       resources :participations do
         get 'close'
-        get 'reopen'
-        
+        get 'unclose'
+
         resources :participation_documents
       end
     end
