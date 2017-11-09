@@ -50,7 +50,7 @@
                         .field= f.input :document, as: :file, label: false
                         .field= f.submit "Enviar arquivo", class: 'ui button gray large', data: { disable_with: 'Enviando o arquivo, aguarde...'}
               - if type.participation_documents.present?
-                - type.participation_documents.each_with_index do |doc, index|
+                - type.participation_documents.order(id: :asc).each_with_index do |doc, index|
                   %tr
                     %td.collapsing= index + 1
                     %td.collapsing

@@ -1,4 +1,4 @@
-- current_candidate.participation.participation_teams.each do |meb|
+- current_candidate.participation.participation_teams.order(id: :asc).each do |meb|
   %tr
     %td= meb.name
     %td= meb.job
