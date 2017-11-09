@@ -6,6 +6,7 @@ module Site
       before_action :authenticate_candidate!
       before_action :set_project
       before_action :set_participation_type, only: [:create]
+      before_action :validate_date
 
       def index
         if current_candidate.participation.present?
@@ -105,6 +106,12 @@ module Site
 
       def set_participation_type
         @participation_type = ::ParticipationType.find(params[:participation_type_id])
+      end
+
+      def validate_date
+        if current_candidate.id != 1 && !(Date.current >= Date.parse('2017-11-10') && Date.current <= Date.parse('2017-11-14'))
+          redirect_to project_restrict_candidates_path(@project, current_candidate)
+        end
       end
     end
   end
