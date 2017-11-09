@@ -40,7 +40,7 @@ module Site
         @document.participation_type_id = @participation_type.id
 
         @member = current_candidate.participation.participation_teams.new
-        
+
         if @document.save
           flash[:success] =  "Operação realizada com sucesso!"
           redirect_to action: :index
@@ -111,7 +111,7 @@ module Site
       end
 
       def validate_date
-        if current_candidate.id != 1 && !(Date.current >= Date.parse('2017-11-10') && Date.current <= Date.parse('2017-11-14'))
+        if current_candidate.id != 1 && (!(Date.current >= Date.parse('2017-11-10') && Date.current <= Date.parse('2017-11-14')) || !current_candidate.homologado?)
           redirect_to project_restrict_candidates_path(@project, current_candidate)
         end
       end

@@ -5,7 +5,7 @@
         Área restrita
       %p
         = link_to "Editar minha inscrição", edit_project_restrict_candidate_path(@project, current_candidate), class: 'ui button blue tiny' if current_candidate.processando?
-        - if current_candidate.id == 1 || (Date.current >= Date.parse('2017-11-10') && Date.current <= Date.parse('2017-11-14'))
+        - if current_candidate.id == 1 || ((Date.current >= Date.parse('2017-11-10') && Date.current <= Date.parse('2017-11-14')) && current_candidate.homologado?)
           - if current_candidate.participation.present? && current_candidate.participation.closed
             = link_to "Visualizar meu projeto enviado", project_restrict_participations_path(@project), class: 'ui button blue tiny'
           - else
