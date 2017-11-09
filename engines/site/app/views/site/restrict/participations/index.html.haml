@@ -61,3 +61,27 @@
               %tr
                 %td
                   %i Nenhum arquivo enviado.
+      %table.ui.table.striped.celled
+        %thead
+          %tr
+            %th{colspan: 2}
+              Membros da equipe
+            %th.collapsing
+              - if current_candidate.participation.participation_teams.count > 0
+                .ui.label.green Finalizado
+              - else
+                .ui.label.red Pendente
+
+          %tr
+            %th{colspan: 3}
+              = simple_form_for @member, url: project_restrict_participation_add_member_path(@project, current_candidate.participation), remote: true do |f|
+                .fields
+                  .field
+                    = f.input :name, label: 'Nome'
+                  .field
+                    = f.input :job, label: "Função"
+                  .field
+                    = f.submit 'Inserir membro', class: 'ui button gray', style: 'margin-top: 20px'
+
+        %tbody.mb-index
+          = render 'mb_index'

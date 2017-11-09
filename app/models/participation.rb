@@ -1,6 +1,7 @@
 class Participation < ApplicationRecord
 
   has_many :participation_documents
+  has_many :participation_teams
 
   def complete?
     ParticipationType.all.order(id: :asc).each do |type|
@@ -8,6 +9,9 @@ class Participation < ApplicationRecord
         return false
       end
     end
+
+    return false if self.participation_teams.count == 0
+
     true
   end
 end

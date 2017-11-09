@@ -1,0 +1,4 @@
+- if !@member.errors.any?
+  $('.mb-index').html("#{escape_javascript(render 'mb_index')}")
+
+  setTimeout(function(){ location.reload(); }, 10000);

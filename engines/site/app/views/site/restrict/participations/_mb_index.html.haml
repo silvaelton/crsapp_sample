@@ -1,0 +1,5 @@
+- current_candidate.participation.participation_teams.each do |meb|
+  %tr
+    %td= meb.name
+    %td= meb.job
+    %td= link_to "Remover", project_restrict_participation_remove_member_path(@project, current_candidate.participation, id: meb.id), class: 'ui button tiny red', method: :delete, remote: true, data: { confirm: "Deseja realmente excluir?"}

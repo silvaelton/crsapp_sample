@@ -22,6 +22,9 @@ Site::Engine.routes.draw do
         get 'close'
         get 'unclose'
 
+        post 'add_member'
+        delete 'remove_member'
+
         resources :participation_documents
       end
     end

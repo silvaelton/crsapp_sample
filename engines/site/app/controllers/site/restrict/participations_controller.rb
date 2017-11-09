@@ -17,6 +17,7 @@ module Site
           @document_4 = current_candidate.participation.participation_documents.new(participation_type_id: 4)
           @document_5 = current_candidate.participation.participation_documents.new(participation_type_id: 5)
           @document_6 = current_candidate.participation.participation_documents.new(participation_type_id: 6)
+          @member = current_candidate.participation.participation_teams.new
         else
           @participation = current_candidate.participations.new
           @participation.save
@@ -54,7 +55,7 @@ module Site
           @document = current_candidate.participation.participation_documents.find(params[:id]) rescue nil
           @document.destroy
         end
-        
+
         redirect_to action: :index
       end
 
@@ -78,7 +79,21 @@ module Site
         redirect_to action: :index
       end
 
+      def add_member
+        @member = current_candidate.participation.participation_teams.new(set_mb_params)
+        @member.save
+      end
+
+      def remove_member
+        @member = current_candidate.participation.participation_teams.find(params[:id])
+        @member.destroy
+      end
+
       private
+
+      def set_mb_params
+        params.require(:participation_team).permit(:name, :job)
+      end
 
       def set_params
         params.fetch(:participation_document, {}).permit(:document)
