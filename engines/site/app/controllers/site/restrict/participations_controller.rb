@@ -39,6 +39,8 @@ module Site
         @document = current_candidate.participation.participation_documents.new(set_params)
         @document.participation_type_id = @participation_type.id
 
+        @member = current_candidate.participation.participation_teams.new
+        
         if @document.save
           flash[:success] =  "Operação realizada com sucesso!"
           redirect_to action: :index
