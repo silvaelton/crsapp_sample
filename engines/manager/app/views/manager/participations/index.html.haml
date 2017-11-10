@@ -1,0 +1,27 @@
+.row
+  .column
+    %h3 Inscritos
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead
+        %tr
+          %th
+            Total: #{@participations.count}
+          %th.collapsing
+            Iniciados: #{@participations.where(closed: true).count}
+          %th.collapsing
+            Finalizados: #{@participations.where(closed: false).count}
+    %table.ui.table.striped.celled.bordered
+      %thead
+        %tr
+          %th Nº da pasta
+          %th Data/Hora
+          %th Situação
+      %tbody
+        - @participations.each do |participation|
+          %tr
+            %td= participation.id
+            %td= participation.closed_date.strftime("%d/%m/%Y") rescue 'Não finalizado'
+            %td= participation.closed ? 'Finalizado' : 'Não finalizado'

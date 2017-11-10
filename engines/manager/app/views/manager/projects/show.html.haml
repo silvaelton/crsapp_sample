@@ -17,7 +17,9 @@
 %table.ui.table.striped.celled
   %thead
     %tr
-      %th Total de projetos recebidos
+      %th Total de projetos iniciados
+      %th Total de projetos finalizados
   %tbody
     %tr
-      %td 0
+      %td= Participation.all.where(closed: false).count
+      %td= Participation.all.where(closed: true).count
