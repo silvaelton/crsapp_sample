@@ -8,7 +8,7 @@
     .row
       .column
         %h1
-          Nº da pasta #{current_candidate.participation.id}
+          Nº de inscrição #{current_candidate.id}
           - if !current_candidate.participation.closed
             - if current_candidate.participation.complete?
               %br
