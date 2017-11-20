@@ -16,6 +16,23 @@
       %table.ui.celled.table.striped
         %thead
           %tr
+            %th.collapsing Situação do envio do projeto
+            %th.collapsing Data/Hora
+        %tbody
+          - if current_candidate.participation.present?
+            %tr
+              %td= current_candidate.participation.closed ? 'Finalizado' : 'Não finalizado'
+              %td= current_candidate.participation.closed_date.strftime("%d/%m/%Y às %H:%M")
+          - else
+            %tr
+              %td Não enviado
+              %td Sem informação
+
+  .row
+    .column
+      %table.ui.celled.table.striped
+        %thead
+          %tr
             %th.collapsing Nº de inscrição
             %th Data
             %th Situação
