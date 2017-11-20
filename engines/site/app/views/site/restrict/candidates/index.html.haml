@@ -21,12 +21,12 @@
         %tbody
           - if current_candidate.participation.present?
             %tr
-              %td= current_candidate.participation.closed ? 'Enviado com sucesso!' : 'Inciado, não finalizado'
+              %td= current_candidate.participation.closed ? 'Enviado com sucesso!' : 'Iniciou, não finalizado'
               %td
                 - if current_candidate.participation.closed
                   = current_candidate.participation.updated_at.strftime("%d/%m/%Y %H:%M")
                 - else
-                  Iniciado, não finalizado
+                  Sem finalização
           - else
             %tr
               %td Não enviado
