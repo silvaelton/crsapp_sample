@@ -43,5 +43,5 @@
       %tbody.mb-index
         - @participation.participation_teams.order(id: :asc).each do |meb|
           %tr
-            %td= meb.name
+            %td{colspan: 2}= meb.name
             %td= meb.job

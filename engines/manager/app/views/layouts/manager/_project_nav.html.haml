@@ -1,21 +1,24 @@
 .ui.vertical.menu
-  %a.item{href: "#{manager.project_path(@project)}"} 
+  %a.item{href: "#{manager.project_path(@project)}"}
     Página inicial
   - if current_user.administrador?
-    %a.item{href: "#{manager.edit_project_path(@project)}"} 
+    %a.item{href: "#{manager.edit_project_path(@project)}"}
       Editar projeto
-    %a.item{href: "#{manager.project_pages_path(@project)}"} 
+    %a.item{href: "#{manager.project_pages_path(@project)}"}
       Páginas
-    %a.item{href: "#{manager.project_navs_path(@project)}"} 
+    %a.item{href: "#{manager.project_navs_path(@project)}"}
       Menu
-  %a.item{href: "#{manager.project_candidates_path(@project)}"} 
+  %a.item{href: "#{manager.project_candidates_path(@project)}"}
     Inscritos
-  %a.item{href: "#{manager.project_indications_path(@project)}"} 
+  %a.item{href: "#{manager.project_indications_path(@project)}"}
     Indicações
-  %a.item{href: "#{manager.project_consults_path(@project)}"} 
+  %a.item{href: "#{manager.project_consults_path(@project)}"}
     Consultas
+  - if current_user.administrador?
+    %a.item{href: "#{manager.project_participations_path(@project)}"}
+      Participações
 .ui.vertical.menu
-  %a.item{href: "#{manager.project_consults_path(@project)}"} 
+  %a.item{href: "#{manager.project_consults_path(@project)}"}
     Trocar minha senha
-  %a.item{href: "#{manager.logout_sessions_path}", data: { method: 'delete'}} 
+  %a.item{href: "#{manager.logout_sessions_path}", data: { method: 'delete'}}
     Finalizar Sessão
