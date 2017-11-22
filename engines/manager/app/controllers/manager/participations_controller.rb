@@ -8,10 +8,11 @@ module Manager
     layout 'manager/project'
 
     def index
-      @participations = Participation.all.order(:id)
+      @participations = Participation.where(closed: true).order(id: :asc)
     end
 
     def show
+      @participation = Participation.where(closed: true).find(params[:id])
     end
 
     private

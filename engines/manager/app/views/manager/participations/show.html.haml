@@ -1,0 +1,47 @@
+.row
+  .column
+    %h2 Pasta #{@participation.id}
+    = link_to "Retornar para listagem de participações", project_participations_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    - ParticipationType.all.order(id: :asc).each do |type|
+      %table.ui.table.striped.celled
+        %thead
+          %tr
+            %th{colspan: 3}
+              = type.name
+            %th.collapsing
+              - if type.complete?(@participation)
+                .ui.label.green Finalizado
+              - else
+                .ui.label.red Pendente
+
+          %tr
+            %th{colspan: 5}= type.description
+        %tbody
+          - if @participation.participation_documents.where(participation_type_id: type.id).present?
+            - @participation.participation_documents.where(participation_type_id: type.id).order(id: :asc).each_with_index do |doc, index|
+              %tr
+                %td.collapsing= index + 1
+                %td{colspan: 3}= link_to "Visualizar arquivo", doc.document_url, target: '_blank'
+          - else
+            %tr
+              %td
+                %i Nenhum arquivo enviado.
+    %table.ui.table.striped.celled
+      %thead
+        %tr
+          %th{colspan: 2}
+            Membros da equipe
+          %th.collapsing
+            - if @participation.participation_teams.count > 0
+              .ui.label.green Finalizado
+            - else
+              .ui.label.red Pendente
+
+      %tbody.mb-index
+        - @participation.participation_teams.order(id: :asc).each do |meb|
+          %tr
+            %td= meb.name
+            %td= meb.job

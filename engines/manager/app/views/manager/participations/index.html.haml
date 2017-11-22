@@ -1,27 +1,23 @@
 .row
   .column
-    %h3 Inscritos
+    %h3 Participações
 .ui.divider.hidden
 .row
   .column
     %table.ui.table.striped.celled.bordered
       %thead
         %tr
-          %th
-            Total: #{@participations.count}
-          %th.collapsing
-            Iniciados: #{@participations.where(closed: true).count}
-          %th.collapsing
-            Finalizados: #{@participations.where(closed: false).count}
+          %th{colspan: 3}
+            Projetos finalizados: #{@participations.where(closed: true).count}
     %table.ui.table.striped.celled.bordered
       %thead
         %tr
-          %th Nº da pasta
+          %th.collapsing Nº da pasta
           %th Data/Hora
-          %th Situação
+          %th Ação
       %tbody
         - @participations.each do |participation|
           %tr
             %td= participation.id
-            %td= participation.closed_date.strftime("%d/%m/%Y") rescue 'Não finalizado'
-            %td= participation.closed ? 'Finalizado' : 'Não finalizado'
+            %td= participation.updated_at.strftime("%d/%m/%Y %H:%M") rescue 'Não finalizado'
+            %td.collapsing= link_to "Visualizar projeto", manager.project_participation_path(@project, participation), class: 'ui button green tiny', data: { disable_with:  'Carregando...'}
