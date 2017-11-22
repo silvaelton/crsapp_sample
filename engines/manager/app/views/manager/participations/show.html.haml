@@ -29,19 +29,3 @@
             %tr
               %td
                 %i Nenhum arquivo enviado.
-    %table.ui.table.striped.celled
-      %thead
-        %tr
-          %th{colspan: 2}
-            Membros da equipe
-          %th.collapsing
-            - if @participation.participation_teams.count > 0
-              .ui.label.green Finalizado
-            - else
-              .ui.label.red Pendente
-
-      %tbody.mb-index
-        - @participation.participation_teams.order(id: :asc).each do |meb|
-          %tr
-            %td{colspan: 2}= meb.name
-            %td= meb.job
