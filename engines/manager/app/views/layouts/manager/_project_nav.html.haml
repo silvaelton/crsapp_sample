@@ -14,9 +14,8 @@
     Indicações
   %a.item{href: "#{manager.project_consults_path(@project)}"}
     Consultas
-  - if current_user.administrador?
-    %a.item{href: "#{manager.project_participations_path(@project)}"}
-      Participações
+  %a.item{href: "#{manager.project_participations_path(@project)}"}
+    Participações
 .ui.vertical.menu
   %a.item{href: "#{manager.project_consults_path(@project)}"}
     Trocar minha senha
