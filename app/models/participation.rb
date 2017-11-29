@@ -1,5 +1,6 @@
 class Participation < ApplicationRecord
-
+  belongs_to :candidate
+  
   has_many :participation_documents
   has_many :participation_teams
 

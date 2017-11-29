@@ -1,0 +1,19 @@
+.ui.grid
+  .column
+    %h1 Participações
+.ui.grid
+  .column
+    - @participations.each do |p|
+      .ui.segment.fluid
+        .row
+          %h4
+            Inscrição nº #{p.candidate_id} - Pasta nº #{p.id} - #{p.candidate.city.humanize}/#{p.candidate.uf.to_s.upcase}
+            %br/
+            #{p.candidate.name.humanize}
+          %br/
+        .row
+          - p.participation_teams.each do |t|
+            = "#{t.name.humanize} (#{t.job}), "
+        .row
+          %br/
+          %h4 Arquivos

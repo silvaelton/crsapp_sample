@@ -1,0 +1,11 @@
+- if @winner.errors.any?
+  $("#form").html("#{escape_javascript(render 'form')}")
+- else
+
+  $("#form").fadeOut('slow')
+
+  setTimeout(function(){ $("#form").html("#{escape_javascript(render 'show_id')}");  $("#form").fadeIn('slow'); }, 3000);
+
+  setTimeout(function(){ $("#form").fadeOut('slow'); }, 8000);
+
+  setTimeout(function(){ $("#form").html("#{escape_javascript(render 'show_candidate')}");  $("#form").fadeIn('slow'); }, 10000);

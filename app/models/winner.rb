@@ -1,16 +1,19 @@
 class Winner < ApplicationRecord
   belongs_to :project
+  belongs_to :participation
 
   enum winner_type: ['menção_honrosa','terceiro_lugar', 'segundo_lugar', 'primeiro_lugar']
 
-  validates :participation_id, presence: true
-  validate  :winner_type_is_valid?
+  validates :participation_id, :winner_type, presence: true
+  validates_uniqueness_of :participation_id, scope: :winner_type, unless: 'self.menção_honrosa?'
+
+  validate :participation_present?
 
   private
 
-  def winner_type_is_valid?
-    if (!self.menção_honrosa? && self.project.winners.where(winner_type: self.winner_type).present?)
-      errors.add(:winner_type, "Já indicado, selecione outro")
+  def participation_present?
+    if !Participation.where(id: self.participation_id).present?
+      errors.add(:participation_id, 'Projeto não existe')
     end
   end
 end

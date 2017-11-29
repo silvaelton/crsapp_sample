@@ -1,13 +1,15 @@
 require_dependency 'site/application_controller'
 
 module Site
-  class WinnersController
+  class WinnersController < ApplicationController
     before_action :set_project
 
     def index
+      @participations = Participation.where(closed: true).order(id: :asc)
     end
 
-    def winners
+    def all
+      @winners = @project.winners.order(id: :asc)
     end
 
     private

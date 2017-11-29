@@ -1,0 +1,27 @@
+.row
+  .column
+    %h3 Vencedores
+    = link_to "Indicar vencedores", manager.new_project_winner_path(@project)
+.ui.divider.hidden
+.row
+  .column
+    %table.ui.table.striped.celled.bordered
+      %thead
+        %tr
+          %th Posição
+          %th Nº da pasta
+          %th Nº do candidato
+          %th Ação
+      %tbody
+        - if @winners.present?
+          - @winners.each do |w|
+            %tr
+              %td.collapsing= w.winner_type.humanize
+              %td.collapsing.collapsing= link_to w.participation_id, manager.project_participation_path(@project,w.participation_id), target: '_blank'
+              %td.collapsing= link_to w.participation.candidate_id, manager.edit_project_candidate_path(@project, w.participation.candidate_id), target: '_blank'
+              %td.collapsing
+                = link_to "Remover", manager.project_winner_path(@project, w.id), method: :delete, class: 'ui button tiny red', data: { confirm: "Deseja realmente excluir?"}
+        - else
+          %tr
+            %td{colspan: 3}
+              Nenhum vencedor cadastrado.

@@ -2,6 +2,7 @@ require_dependency 'manager/application_controller'
 
 module Manager
   class WinnersController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_project
 
     def index

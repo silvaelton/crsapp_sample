@@ -9,6 +9,8 @@ Manager::Engine.routes.draw do
     resources :questions
     resources :pages
     resources :participations
+    resources :winners
+    resources :resources
   end
 
   resources :sessions do

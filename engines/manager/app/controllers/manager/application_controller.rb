@@ -2,10 +2,10 @@ module Manager
   class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
-    layout 'manager/application'
-    
+    layout 'manager/project'
+
     helper_method :authenticate_user!, :current_user
-    
+
     private
 
     def authenticate_user!

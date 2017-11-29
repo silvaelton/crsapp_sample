@@ -1,0 +1,17 @@
+.ui.grid
+  .column{style: 'text-align: center !important'}
+    %h1= @winner.winner_type.humanize
+    %h1 Nº inscrição #{@winner.participation.candidate_id} - Pasta #{@winner.participation_id}
+    %h1= @winner.participation.candidate.name.to_s.mb_chars.upcase
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/
+= link_to "Voltar para listagem", manager.project_winners_path(@project), class: 'ui button'
+= link_to "Voltar para nomeação", manager.new_project_winner_path(@project), class: 'ui button'

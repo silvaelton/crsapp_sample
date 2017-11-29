@@ -1,0 +1,11 @@
+= simple_form_for [@project, @winner], remote: true do |f|
+  .fields
+    .field.wide.four
+      = f.input :participation_id, as: :string, label: "Nº da pasta"
+    .field.wide.four
+      = f.input :winner_type, label: "Posição", as: :select, collection: Winner.winner_types.map { |k,v| [k.humanize, k]}, include_blank: 'Selecione...'
+  .fields
+    .field.wide.four
+      = f.submit "Nomear vencedor", class: 'ui button green', data: { disable_with: 'Nomeando, aguarde...'}
+    .field.wide.four
+      = link_to "Voltar para listagem", manager.project_winners_path(@project), class: 'ui button'
