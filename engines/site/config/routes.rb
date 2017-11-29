@@ -1,6 +1,9 @@
 Site::Engine.routes.draw do
 
   resources :projects, path: '/', only: [:show] do
+    resources :winners, path: 'participacoes' do
+      get 'vencedores', to: 'winners#show', on: :collection
+    end
     resources :question_one, path: 'questionario'
     resources :question_two, path: 'formulario_indicacao'
     resources :pages, only: [:show]
