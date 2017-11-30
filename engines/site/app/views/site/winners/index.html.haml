@@ -29,6 +29,6 @@
               %tr
                 %th Pranchas
             %tbody
-              - p.participation.participation_documents.where(participation_type_id: 1).each_with_index do |a,i|
+              - p.participation_documents.where(participation_type_id: 1).each_with_index do |a,i|
                 %tr
                   %td= link_to "Arquivo #{i + 1}", a.document_url, target: '_blank'
