@@ -12,7 +12,7 @@ class Winner < ApplicationRecord
   private
 
   def participation_present?
-    if !Participation.where(id: self.participation_id).present?
+    if !Participation.where(id: self.participation_id, closed: true).present?
       errors.add(:participation_id, 'Projeto não existe')
     end
   end

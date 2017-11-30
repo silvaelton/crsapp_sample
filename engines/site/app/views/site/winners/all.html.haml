@@ -18,7 +18,11 @@
             = "#{t.name.humanize} (#{t.job}), "
         .row
           %br/
-          %h4 Arquivos
-          - p.participation.participation_documents.where(participation_type_id: 5).each_with_index do |a,i|
-            .column
-              = link_to "Arquivo #{i + 1}", a.document_url, target: '_blank'
+          %table.ui.table.striped.celled
+            %thead
+              %tr
+                %th{colspan: 3} Arquivos
+            %tbody
+              %tr
+                - p.participation.participation_documents.where(participation_type_id: 5).each_with_index do |a,i|
+                  %td= link_to "Arquivo #{i + 1}", a.document_url, target: '_blank'
