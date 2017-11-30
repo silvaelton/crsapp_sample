@@ -5,6 +5,8 @@ module Manager
     before_action :authenticate_user!
     before_action :set_project
 
+    layout 'manager/application'
+
     def index
       @winners = @project.winners.order(:winner_type)
     end

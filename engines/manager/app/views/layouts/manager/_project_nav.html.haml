@@ -16,11 +16,10 @@
     Consultas
   %a.item{href: "#{manager.project_participations_path(@project)}"}
     Participações
-  - if current_user.administrador?
-    %a.item{href: "#{manager.project_winners_path(@project)}"}
-      Vencedores
-    %a.item{href: "#{manager.project_resources_path(@project)}"}
-      Recursos
+  %a.item{href: "#{manager.project_winners_path(@project)}"}
+    Vencedores
+  %a.item{href: "#{manager.project_resources_path(@project)}"}
+    Recursos
 .ui.vertical.menu
   %a.item{href: "#{manager.project_consults_path(@project)}"}
     Trocar minha senha
