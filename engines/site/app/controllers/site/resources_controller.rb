@@ -9,7 +9,7 @@ module Site
     end
 
     def new
-      @resources = Resource.new
+      @resource = Resource.new
     end
 
     def create
