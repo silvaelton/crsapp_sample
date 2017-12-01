@@ -27,10 +27,10 @@
           %table.ui.table.striped.celled
             %thead
               %tr
-                %th Pranchas
+                %th{colspan: 3} Pranchas
             %tbody
               %tr
                 - p.participation_documents.where(participation_type_id: 1).each_with_index do |a,i|
-                  - if ((i + 1) % 3) == 0
+                  - if (i % 3) == 0
                     %tr
                   %td= link_to "Arquivo #{i + 1}", a.document_url, target: '_blank'
