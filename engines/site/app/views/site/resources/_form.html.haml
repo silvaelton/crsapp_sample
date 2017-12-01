@@ -1,0 +1,12 @@
+= simple_form_for [@project, @consult] do |f|
+  .fields
+    .three.wide.field
+      = f.input :candidate_id, label: "Nº de inscrição"
+    .three.wide.field
+      = f.input :password, label: "Senha de acesso"
+  .field
+    = f.input :message, label: "Descrição do recurso"
+  .ui.divider.hidden
+  = recaptcha_tags
+  %br
+  = f.submit "Enviar consulta", class

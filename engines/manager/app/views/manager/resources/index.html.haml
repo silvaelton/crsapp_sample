@@ -7,6 +7,19 @@
     %table.ui.table.striped.celled.bordered
       %thead
         %tr
+          %th.collapsing Protocolo
+          %th.collapsing Data/Hora
           %th.collapsing Nº de inscrição
           %th Conteúdo
       %tbody
+        - if @resources.present?
+          - @resources.order(id: :asc).each do |r|
+            %tr
+              %td= "#{r.id}#{r.created_at.strftime("%Y")}"
+              %td= r.created_at.strftime("%d/%m/%Y")
+              %td= r.candidate_id
+              %td= r.message
+        - else
+          %tr
+            %td{colspan: 3}
+              %i Nenhum recurso realizado.

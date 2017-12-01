@@ -20,3 +20,9 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "sqlite3"
 end
+
+## a76db5383c982dcc863cf7945ec305e2.jpg
+## #<ParticipationDocument id: 216, participation_id: 10, participation_type_id: 5, document: "a76db5383c982dcc863cf7945ec305e2.jpg", created_at: "2017-11-14 19:03:42", updated_at: "2017-11-14 19:03:42">
+
+
+## #<ParticipationDocument id: 233, participation_id: 10, participation_type_id: 1, document: "3d278b0d170bd95c191d30ba1f521869.pdf", created_at: "2017-11-14 19:34:51", updated_at: "2017-11-14 19:34:51">

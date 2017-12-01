@@ -6,6 +6,7 @@ module Manager
     before_action :set_project
 
     def index
+      @resources = Resource.all
     end
 
     private
