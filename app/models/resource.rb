@@ -3,7 +3,7 @@ class Resource < ApplicationRecord
   attr_accessor :password
 
   validates :candidate_id, :message, presence: true
-
+  validates :candidate_id, uniqueness: true
   validate :candidate_authenticate?
 
   private
