@@ -2,6 +2,7 @@ require_dependency 'site/application_controller'
 
 module Site
   class ResourcesController < ApplicationController
+    before_action :set_project
 
     def index
       redirect_to action: :new
@@ -22,6 +23,10 @@ module Site
 
 
     private
+
+    def set_project
+      @project = Site::Project.friendly.find(params[:project_id])
+    end
 
     def set_params
       params.require(:resource).permit(:candidate_id, :password, :message)
