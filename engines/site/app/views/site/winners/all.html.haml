@@ -5,18 +5,15 @@
   .column
     %p Em ato público realizado na tarde de 30 de novembro de 2017 na Secretaria Estadual do Meio Ambiente (SEMA), situada à Avenida Pontes Vieira, 2666, Dionísio Torres, em Fortaleza/CE, na presença da Coordenação do Concurso, da presidência do Departamento do Ceará do Instituto de Arquitetos do Brasil (IAB-CE) e da imprensa local, o secretário do meio ambiente, Artur Bruno, anunciou o resultado do Concurso Público Nacional de Ideias de Urbanismo, Paisagismo e Arquitetura para o Trecho 01 do Parque Estadual do Cocó. Os projetos classificados em primeiro, segundo e terceiro lugares, bem como a menção honrosa, todos selecionados pela Comissão Julgadora do Concurso, foram identificados. Abaixo, a Ata dos Trabalhos da Comissão Julgadora do Concurso.
 
-    %br/
-    %br/
-    = link_to "Baixar arquivo Ata", "https://drive.google.com/file/d/0BwhiUNGP8ebHYVRsYjhoZWZCZldmc1dmaUdIbmgzdmo5amVv/view", target: '_blank'
-    %br/
-    %br/
+    %p= link_to "Baixar arquivo Ata", "https://drive.google.com/file/d/0BwhiUNGP8ebHYVRsYjhoZWZCZldmc1dmaUdIbmgzdmo5amVv/view", target: '_blank'
+
   .column
     - @winners.each do |p|
       .ui.segment.fluid
         .row
           %h2
             #{p.winner_type.humanize} -
-            Inscrição nº #{p.participation.candidate_id} - Pasta nº #{p.participation_id} - #{p.participation.candidate.city.humanize}/#{p.participation.candidate.uf.to_s.upcase}
+            Inscrição nº #{p.participation.candidate_id} - Pasta nº #{p.participation_id} - #{p.participation.candidate.city.humanize}/#{p.participation.candidate.uf.to_s.mb_chars.upcase}
             %br/
           %h3
             #{p.participation.candidate.name.humanize}
